@@ -122,11 +122,9 @@ llm = OpenAI(temperature=0)
 qa_with_sources = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=docsearch.as_retriever(),
                                               return_source_documents=True)
 
-query = "When are the academic winter term dates?"
+query = "What are the A level requirements to study Computer Science at University of Birmingham?"
 
 
 result = qa_with_sources({"query": query})
 print(result["result"])
 print(result["source_documents"])
-
-# after git
