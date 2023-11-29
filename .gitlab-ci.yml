@@ -1,8 +1,0 @@
-stages:
-  - deploy
-
-deploy_to_github:
-  stage: deploy
-  script:
-    - git remote add github <https://github.com/rohanr07/UoB-Chatbot>
-    - git push github $CI_COMMIT_REF_NAME
