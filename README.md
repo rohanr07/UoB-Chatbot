@@ -18,6 +18,7 @@ This is...
 _Both of these require you to have a GitHub Account_
 
 `MONGO_URL`
+
 _This can be fetched from your Mongo DB_
 
 `OPENAI_API_KEY`
