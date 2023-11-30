@@ -33,7 +33,7 @@ _All of these can be fetched from your Pinecone Account_
 
 ## 💻 Deployment
 
-To deploy this project run
+To deploy this project run the following commands:
 
 ```
 npm install
