@@ -10,7 +10,7 @@ To run this project, you will need to add the following environment variables to
 
 `NEXTAUTH_SECRET = "cOmPlExStUfF"`
 
-This is...
+_This is required for encrypting the authentication process_
 
 `GITHUB_ID`
 `GITHUB_SECRET`
