@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# University of Birmingham Chatbot
 
-First, run the development server:
+This chatbot is targeted to individuals who are currently studying at the Univesity of Birmingham or for students who are enrolled onto a course at the University of Birmingham.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+## 🤖 Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`NEXTAUTH_SECRET = "cOmPlExStUfF"`
+
+This is...
+
+`GITHUB_ID`
+`GITHUB_SECRET`
+
+_Both of these require you to have a GitHub Account_
+
+`MONGO_URL`
+_This can be fetched from your Mongo DB_
+
+`OPENAI_API_KEY`
+
+_This requires you to set up a paid plan with OPENAI_API_KEY. You can fund as a little as $5 to get it running_
+
+`PINECONE_API_KEY`
+`PINECONE_ENVIRONMENT`
+`PINECONE_INDEX`
+
+_All of these can be fetched from your Pinecone Account_
+
+## 💻 Deployment
+
+To deploy this project run
+
 ```
+npm install
+```
+This will install all of the required packages outlined in the package.json file.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next, run the following command:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm run dev
+```
+This will start the server locally on your computer on a free port (port 3000 commonly used).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+On your search enginer, you can open:
 
-## Learn More
+http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+Or you can click on the link generated in terminal to open the application (this option is recommended)
+## 📼 Demo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The chatbot is currently under development at the moment.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+_{ Stay tuned for an update real soon }_
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✍️ Authors
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Hi, I am Rohan, the guy behind this chatbot. 
+
+I have mentioned a few of my socials below.
+
+- [@GitHub](https://github.com/rohanr07)
+- [@Blog](https://rq7.hashnode.dev)
+- [@LinkedIn](https://www.linkedin.com/in/rohanrenganathan/)
+
+
+## 🚀 About Me
+I'm a Computer Science student who is driven by deep desire to leverage a lasting positive change within society.
+
