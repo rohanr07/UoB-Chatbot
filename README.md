@@ -68,6 +68,8 @@ I have mentioned a few of my socials below.
 - [@GitHub](https://github.com/rohanr07)
 - [@Blog](https://rq7.hashnode.dev)
 - [@LinkedIn](https://www.linkedin.com/in/rohanrenganathan/)
+- [@X](https://twitter.com/_rohanr007_)
+
 
 
 ## 🚀 About Me
