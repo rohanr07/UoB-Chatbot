@@ -9,7 +9,7 @@ import { Send } from "react-feather";
 import LoadingDots from "@/app/components/LoadingDots";
 
 
-const Dashboard = async () => {
+const Chatbot = async () => {
     const session = await getServerSession();
     if (!session) {
         // if session does not exist then redirecting to home route

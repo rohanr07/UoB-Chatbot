@@ -15,12 +15,9 @@ const Navbar = () => {
                     <Link href="/">
                         <li>Home</li>
                     </Link>
+
                 </div>
                 <div className="flex gap-10">
-                    <Link href="/dashboard">
-                        <li>Chatbot</li>
-                    </Link>
-
                     {!session ? (
                         <>
                             <Link href="/login">
@@ -33,7 +30,17 @@ const Navbar = () => {
                         </>
                     ): (
                         <>
+
+                            <Link href="/chatbot">
+                                <li>Chatbot</li>
+                            </Link>
+
+                            <Link href="/history">
+                                <li>Chat History</li>
+                            </Link>
+
                             {session.user?.email}
+
                             <li>
                                 <button onClick={() => {
                                     signOut();

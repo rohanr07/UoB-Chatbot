@@ -35,7 +35,7 @@ async function handleGet() {
   // Handle GET request logic here
   // For example, fetching chat history from the database
    console.log(" INSIDE GET HANDLER IN ROUTE");
-  const userEmail = "admin@gmail.com";  //"jyotiren@gmail.cm"; // Replace with logic to get user email
+  const userEmail = "admin@gmail.com";  // Replace with logic to get user email
 //  await connect(); // Ensure the database connection is established
 
   try {

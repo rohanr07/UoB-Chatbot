@@ -18,10 +18,11 @@ async function initChain() {
         },
     );
 
+    // Initializing a ConversationalRetrievalQAChain with the LLM and vector store from Pinecone
     return ConversationalRetrievalQAChain.fromLLM(
         model,
         vectorStore.asRetriever(),
-        {returnSourceDocuments: true}
+        {returnSourceDocuments: true} // Configures the chain to return the source documents alongside the generated answers
     );
 }
 
