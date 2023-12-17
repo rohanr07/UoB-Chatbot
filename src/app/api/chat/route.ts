@@ -1,73 +1,80 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import {chain} from "@/utils/chain";
 import {Message} from "@/types/message";
+
+import { NextApiRequest, NextApiResponse } from 'next';
+import { authenticateUser, AuthResult } from '@/utils/authentication';
 
 import connect from "@/utils/mongodb";
 import ChatMessage from "@/models/ChatMessage";
 import user from "@/models/User";
 
-export async function GET(request: { method: string }) {
-     console.log(" INSIDE route GET....");
-  if (request.method === "GET") {
-    // Ensure Mongoose connection
-    await connect();   //debug
-    return handleGet();
+
+
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
+    const {userEmail, session}: AuthResult = await authenticateUser(req);
+    if (!userEmail || !session) {
+        return NextResponse.json({error: 'User not authenticated'}, {status: 401});
+    }
+    console.log(" USER EMAIL ", userEmail);
+
+    const method= req.method;
+
+  if (method === "GET") {
+    return handleGet(userEmail);
   } else {
     return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
   }
 }
 
-export async function POST(request: Request) {
-    const body = await request.json();
-    const question: string = body.query;
-    const history: Message[] = body.history ?? []
-    console.log ("INSIDE POST query ", question);
-  if (request.method === "POST") {
-    // Ensure Mongoose connection
-    await connect();   //debug
-    return handlePost(question, history);
-  } else {
-    return NextResponse.json({ error: "Method not allowed" }, { status: 405 });
-  }
-}
+// helper function to convert file readable stream into JSON
+async function streamToString(stream: any) {
+      const chunks = [];
+      for await (const chunk of stream) {
+        chunks.push(chunk);
+       }
+      return Buffer.concat(chunks).toString('utf8');
+      }
 
-async function handleGet() {
-  // Handle GET request logic here
-  // For example, fetching chat history from the database
-   console.log(" INSIDE GET HANDLER IN ROUTE");
-  const userEmail = "admin@gmail.com";  // Replace with logic to get user email
-//  await connect(); // Ensure the database connection is established
+export async function POST(req: NextApiRequest) {
+    console.log("!!!!!!!!!!!! RR Request BEFORE !!!!!!!!!!!!", req.body);
+    const {userEmail, session}: AuthResult = await authenticateUser(req);
+    if (!userEmail || !session) {
+        return NextResponse.json({error: 'User not authenticated'}, {status: 401});
+    }
+    console.log(" USER EMAIL ", userEmail);
+    const requestBody = await streamToString( req.body)
 
-  try {
-    console.log(" userEmail used for FIND", userEmail);
-    const chatHistory  = await ChatMessage.find({ email: userEmail }).sort({ timestamp: -1 });
+    const parsedBody = JSON.parse(requestBody);
+    console.log("!!!!!!!!!!!! RR Request AFTER !!!!!!!!!!!!", parsedBody);
+    console.log("parsedBody " , parsedBody);
 
-    console.log( "PRINT chatHistory",chatHistory);
-    return NextResponse.json({ chatHistory });
-   } catch (error) {
-    console.error("Error fetching chat messages:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
-  }
-}
+    if (req.method === "POST") {
+        // const { query, history } = body;
+        const { query, history } = parsedBody;
+        console.log(" Query " , query);
+        console.log(" History " , history);
+        return handlePost(userEmail, query, history);
+    } else {
+        return NextResponse.json({error: 'Method not allowed'}, {status: 405});
+    }
+};
 
-async function handlePost(question :string, history: Message[] ) {
-  // const body = await request.json();
-  //    console.log("HANDLE POST QUESTION IS 1:", request.query);
-   // const question: string = request.query;
-    console.log("HANDLE POST QUESTION IS 2", question);
+async function handleGet(userEmail: string) {
 
- //   const history: Message[] = request.history ?? []
-//
-    const userEmail = user;
-    console.log(" USER  " +userEmail);
+            try {
+                const chatHistory = await ChatMessage.find({email: userEmail}).sort({timestamp: -1});
+                console.log("PRINT chatHistory", chatHistory);
+                return NextResponse.json({chatHistory});
+            } catch (error) {
+                console.error("Error fetching chat messages:", error);
+                return NextResponse.json({error: "Internal Server Error"}, {status: 500});
+            }
+        }
 
-    //getSession(request);
-
-    if (!userEmail) {
-    return new NextResponse("User not authenticated", { status: 401 });
-  }
+async function handlePost(userEmail: string, question :string, history: Message[] ) {
   ///
-   /* temp commented to save $$$$$
+   /* temp commented to save $$
            const res = await chain.call({
             question: question,
             chat_history: history.map(h => h.content).join("\n"),
@@ -82,23 +89,19 @@ async function handlePost(question :string, history: Message[] ) {
        ],
       };
 
-    // Use the hardcoded result instead of making an API call
+    // Use the hardcoded result instead of making an API call to save $$
     const res = await Promise.resolve(hardcodedResult);
 
-    // start adding JR
-    // Insert the chat question and answer into the database
-    await connect(); // Ensure the database connection is established
+    // Populate the conversation into MongoDB
     await ChatMessage.create({
-    email: "jyotiren@gmail.cm",
+    email: userEmail,
     question: question,
     answer: res.text
   });
 
-  // added JR
-    console.log("SOURCE DOCUMENTS :" + res.sourceDocuments)
-
     const links: string[] = Array.from(new Set(res.sourceDocuments.map((document: {metadata: {source: string}}) => document.metadata.source)))
     return NextResponse.json({role: "assistant", content: res.text, links: links})
+
 }
 
 
