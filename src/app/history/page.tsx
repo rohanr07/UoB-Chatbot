@@ -76,10 +76,47 @@ export default function ConversationHistory(){
     // debug line: printing chat histories
     console.log('Chat Histories:', chatHistories);
 
+    // makes an API call to clear chat history from front UI and MongoDB
+    const handleClearHistory = async () => {
+        console.log("Inside handleClearHistory() : Line 81")
+
+    // Makes an API call to clear the MongoDB chat history records
+    try {
+        const response = await fetch('/api/clear-history', { method: 'POST' });
+        if (response.ok) {
+            console.log('History cleared');
+        } else {
+            console.error('Failed to clear history');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+    };
+
   return (
      <main className="h-screen bg-black-400 p-6 flex flex-col">
-       <div className="mt-4 flex flex-col gap-2">
-       <h1>Chat History </h1>
+
+         <div style={{ position: 'relative', height: '100%' }}>
+             {/* ... your existing UI components ... */}
+             <button
+                 style={{
+                     position: 'absolute',
+                     top: 0,
+                     right: 0,
+                     margin: '10px',
+                     // Add more styling as needed
+                     }}
+                     onClick={handleClearHistory}
+    >
+        Clear History
+    </button>
+             {/*</div>*/}
+
+
+
+
+         {/* <div className="mt-4 flex flex-col gap-2"> */}
+       <h1> Chat History </h1>
 
            <ul>
         {chatHistories.map((chatHistory, index) => (

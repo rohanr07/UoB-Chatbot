@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import {chain} from "@/utils/chain";
 import {Message} from "@/types/message";
 
@@ -37,7 +37,6 @@ async function streamToString(stream: any) {
       }
 
 export async function POST(req: NextApiRequest) {
-    console.log("!!!!!!!!!!!! RR Request BEFORE !!!!!!!!!!!!", req.body);
     const {userEmail, session}: AuthResult = await authenticateUser(req);
     if (!userEmail || !session) {
         return NextResponse.json({error: 'User not authenticated'}, {status: 401});
