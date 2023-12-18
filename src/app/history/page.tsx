@@ -85,6 +85,7 @@ export default function ConversationHistory(){
         const response = await fetch('/api/clear-history', { method: 'POST' });
         if (response.ok) {
             console.log('History cleared');
+            setChatHistories([]);
         } else {
             console.error('Failed to clear history');
         }
