@@ -3,6 +3,9 @@ import React from 'react'
 import Link from 'next/link';
 import { signOut, useSession } from "next-auth/react";
 
+import Image from 'next/image';
+import MyImage from '/public/images/UoB_Logo.png';
+
 
 
 const Navbar = () => {
@@ -11,6 +14,18 @@ const Navbar = () => {
     return (
         <div>
             <ul className="flex justify-between m-10 item-center">
+                <div>
+                    <a href="https://www.birmingham.ac.uk/index.aspx" target="_blank">
+                        <Image src={MyImage} alt="University of Birmingham Logo" />
+                    </a>
+                </div>
+
+
+
+
+
+
+
                 <div>
                     <Link href="/">
                         <li>Home</li>
