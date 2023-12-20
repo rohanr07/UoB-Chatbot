@@ -7,6 +7,7 @@ import { Message } from "@/types/message";
 // importing library to use the icons
 import { Send } from "react-feather";
 import LoadingDots from "@/app/components/LoadingDots";
+import {useSession} from "next-auth/react";
 
 
 const Chatbot = async () => {
@@ -18,12 +19,14 @@ const Chatbot = async () => {
 };
 
     export default function Home() {
+        const { data: session } = useSession();
         const [message, setMessage] = useState<string>("");
         const [history, setHistory] = useState<Message[]>([
             {
                 role: "assistant",
                 content:
-                    "Hello! Ask me anything about the University of Birmingham.",
+                    //"Hello " + session.user.name +"!  Ask me anything about the University of Birmingham.",
+                "Hello! Ask me anything about the University of Birmingham.",
             },
         ]);
         const lastMessageRef = useRef<HTMLDivElement | null>(null);

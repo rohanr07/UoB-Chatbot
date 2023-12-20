@@ -15,6 +15,7 @@ export const authOptions:any = {
           id: "credentials",
           name: "Credentials",
           credentials: {
+              name: { label: "Name", type: "text" },
               email: {label: "Email", type: "text"},
               password: {label: "Password", type: "password"},
           },
@@ -32,6 +33,7 @@ export const authOptions:any = {
                           user.password
                       )
                       if (isPasswordCorrect) {
+                          console.log(" debug new field name ",user.name);
                           return user;
                       }
                   }

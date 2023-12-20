@@ -26,16 +26,26 @@ const Register = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const email = e.target[0].value;
-        const password = e.target[1].value;
+        const name = e.target[0].value;
+        const email = e.target[1].value;
+        const password = e.target[2].value;
 
         if (!isValidEmail(email)) {
             setError("Email is Invalid");
             return;
         }
 
-        if(!password || password.length < 8) {
-            setError("Password is Invalid");
+        if (password.length < 7) {
+            setError("Password should be at least 7 characters long");
+            return;
+        } else if (!/[A-Z]/.test(password)) {
+            setError("Password should contain an uppercase character");
+            return;
+        } else if (!/[a-z]/.test(password)) {
+            setError("Password should contain a lowercase character");
+            return;
+        } else if (!/[0-9]/.test(password)) {
+            setError("Password should contain a number");
             return;
         }
 
@@ -46,6 +56,7 @@ const Register = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    name,
                     email,
                     password
                 })
@@ -103,6 +114,22 @@ const Register = () => {
                     {" "}
                         Register
                     </button>
+
+                    <br/>
+                    <br/>
+
+                        <p className="text-sm font-medium text-red-700">
+                            <b>Password must contain...</b>
+                            <ul>
+                                    <li>• At least 7 characters long </li>
+                                    <li>• An uppercase character </li>
+                                    <li>• A lowercase character </li>
+                                    <li>• A number </li>
+                            </ul>
+                        </p>
+
+
+
 
                     <p className="text-red-600 text-[16px] mb-4"> {error && error}</p>
 

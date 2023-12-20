@@ -20,12 +20,6 @@ const Navbar = () => {
                     </a>
                 </div>
 
-
-
-
-
-
-
                 <div>
                     <Link href="/">
                         <li>Home</li>
@@ -45,7 +39,6 @@ const Navbar = () => {
                         </>
                     ): (
                         <>
-
                             <Link href="/chatbot">
                                 <li>Chatbot</li>
                             </Link>
@@ -54,7 +47,7 @@ const Navbar = () => {
                                 <li>Chat History</li>
                             </Link>
 
-                            {session.user?.email}
+                            {session.user.name}
 
                             <li>
                                 <button onClick={() => {
