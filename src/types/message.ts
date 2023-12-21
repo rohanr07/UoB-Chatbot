@@ -1,5 +1,5 @@
 export type Message = {
     role: "user" | "assistant"
-    content: string
+    content: string;
     links?: string[]
 }

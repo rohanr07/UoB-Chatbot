@@ -10,23 +10,14 @@ import LoadingDots from "@/app/components/LoadingDots";
 import {useSession} from "next-auth/react";
 
 
-const Chatbot = async () => {
-    const session = await getServerSession();
-    if (!session) {
-        // if session does not exist then redirecting to home route
-        redirect("/")
-    }
-};
-
     export default function Home() {
-        const { data: session } = useSession();
+        const { data: session } : any = useSession();
         const [message, setMessage] = useState<string>("");
         const [history, setHistory] = useState<Message[]>([
             {
                 role: "assistant",
                 content:
-                    //"Hello " + session.user.name +"!  Ask me anything about the University of Birmingham.",
-                "Hello! Ask me anything about the University of Birmingham.",
+                `Hello ${session?.user?.name}! Ask me anything about the University of Birmingham.`
             },
         ]);
         const lastMessageRef = useRef<HTMLDivElement | null>(null);
