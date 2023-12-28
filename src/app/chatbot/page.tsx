@@ -1,7 +1,5 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation"
 
 import { Message } from "@/types/message";
 // importing library to use the icons
