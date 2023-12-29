@@ -6,6 +6,8 @@ import { signOut, useSession } from "next-auth/react";
 import Image from 'next/image';
 import MyImage from '/public/images/UoB_Logo.png';
 
+import SettingsDropdown from '@/app/components/Settings';
+
 
 
 const Navbar = () => {
@@ -40,7 +42,7 @@ const Navbar = () => {
                     ): (
                         <>
                             <Link href="/home">
-                                <li>HomePage</li>
+                                <li>Home</li>
                             </Link>
 
                             <Link href="/chatbot">
@@ -59,6 +61,10 @@ const Navbar = () => {
                                 }} className="p-2 px-5 mt-1 bg-blue-800 rounded-full">
                                     Logout
                                 </button>
+                            </li>
+
+                            <li>
+                                <SettingsDropdown />
                             </li>
                         </>
                     )}

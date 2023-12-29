@@ -6,11 +6,17 @@ import { Message } from "@/types/message";
 import { Send } from "react-feather";
 import LoadingDots from "@/app/components/LoadingDots";
 import {useSession} from "next-auth/react";
+import { useSearchParams} from "next/navigation";
+import { questions } from "@/app/components/homePrompt"
 
+    export default function Chatbot() {
 
-    export default function Home() {
         const { data: session } : any = useSession();
         const [message, setMessage] = useState<string>("");
+
+        //const pathname = usePathname();
+        const searchParams = useSearchParams()
+
         const [history, setHistory] = useState<Message[]>([
             {
                 role: "assistant",
@@ -66,6 +72,16 @@ import {useSession} from "next-auth/react";
                 lastMessageRef.current.scrollIntoView({behavior: "smooth"});
             }
         }, [history]);
+
+        useEffect(() => {
+            setMessage(searchParams.get('message') ?? "");
+        }, [searchParams]);
+
+        useEffect(() => {
+            if (questions.includes(message)) {
+                handleClick()
+            }
+        }, [message]);
 
         return (
             <main className="h-screen bg-gray-700 p-6 flex flex-col">

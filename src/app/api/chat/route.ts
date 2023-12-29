@@ -72,14 +72,15 @@ async function handleGet(userEmail: string) {
         }
 
 async function handlePost(userEmail: string, question :string, history: Message[] ) {
-  ///
-   /* temp commented to save $$
+
+/*
            const res = await chain.call({
             question: question,
             chat_history: history.map(h => h.content).join("\n"),
         });
+
     */
-    // Replace the actual call to chain.call with a hardcoded result for testing
+           // Replace the actual call to chain.call with a hardcoded result for testing
     const hardcodedResult = {
        text: 'This is a hardcoded response',
        sourceDocuments: [
@@ -90,6 +91,7 @@ async function handlePost(userEmail: string, question :string, history: Message[
 
     // Use the hardcoded result instead of making an API call to save $$
     const res = await Promise.resolve(hardcodedResult);
+
 
     // Populate the conversation into MongoDB
     await ChatMessage.create({

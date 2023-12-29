@@ -7,7 +7,7 @@ interface RedirectButtonProps {
   message?: string; // Optional message prop
 }
 
-const QuestionPrompt: React.FC<RedirectButtonProps> = ({
+const HomePageButtons: React.FC<RedirectButtonProps> = ({
   destination,
   buttonText,
   message,
@@ -19,4 +19,4 @@ const QuestionPrompt: React.FC<RedirectButtonProps> = ({
   );
 };
 
-export default QuestionPrompt;
+export default HomePageButtons;
