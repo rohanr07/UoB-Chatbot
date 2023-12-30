@@ -4,19 +4,22 @@ import { redirect } from "next/navigation";
 import HomePageButtons from "@/app/components/homePageButtons";
 import { questions } from "@/app/components/homePrompt"
 
+
 const Homepage = async () => {
+
     const session = await getServerSession();
     if (!session) {
         redirect("/");
     }
 
     const containerStyle: React.CSSProperties = {
-        display: 'flex',          // Enable flex container
-        justifyContent: 'space-around', // Distribute space around the items
-        alignItems: 'flex-end',   // Align items to the end of the container on the cross axis
-        height: '100vh',          // Make the container take up the full viewport height
-        padding: '0',             // Remove padding
-        margin: '0',              // Remove margin
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'flex-end',
+        height: 'calc(100vh - 200px)', //height: `calc(100vh - ${navBarHeight}px)`,
+        padding: '0',
+        margin: '0',
+        boxSizing: 'border-box'
     };
 
     const columnStyle: React.CSSProperties = {
