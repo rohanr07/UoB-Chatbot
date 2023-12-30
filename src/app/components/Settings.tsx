@@ -1,20 +1,25 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signOut } from "next-auth/react";
 
 const SettingsDropdown = () => {
   const [isHovering, setIsHovering] = useState(false);
   const router = useRouter(); // This is called at the top level of a functional component
 
   const menuItems = [
-    {name: 'Change Username or Password', route: '/change-credentials'}, //'/change-username'},
-    //{name: 'Change Password', route: '/change-password'}, //'/Password'},
-    {name: 'DarkMode/LightMode', route: '/history'}, //'/toggle-theme'},
-    {name: 'Signout', route: '/chat-history'}, //'/signout'},
+    {name: 'Change Password', route: '/change-credentials'},
+    {name: 'DarkMode/LightMode', route: '/history'},
+    {name: 'Signout', route: '/api/auth/signout'},
   ];
 
   const handleNavigation = (route: any) => {
     // This function will be called in response to a click event, which is a client-side interaction.
-    router.push(route);
+    if (route === '/api/auth/signout') {
+      signOut({ callbackUrl: '/' });
+    } else {
+      // For other menu items, use the router to navigate
+      router.push(route);
+    }
   };
 
   return (

@@ -45,8 +45,6 @@ export async function POST(req: NextApiRequest) {
     const requestBody = await streamToString( req.body)
 
     const parsedBody = JSON.parse(requestBody);
-    console.log("!!!!!!!!!!!! RR Request AFTER !!!!!!!!!!!!", parsedBody);
-    console.log("parsedBody " , parsedBody);
 
     if (req.method === "POST") {
         // const { query, history } = body;

@@ -8,8 +8,6 @@ import MyImage from '/public/images/UoB_Logo.png';
 
 import SettingsDropdown from '@/app/components/Settings';
 
-
-
 const Navbar = () => {
     const {data: session} : any = useSession();
 
@@ -54,14 +52,6 @@ const Navbar = () => {
                             </Link>
 
                             {session.user.name}
-
-                            <li>
-                                <button onClick={() => {
-                                    signOut();
-                                }} className="p-2 px-5 mt-1 bg-blue-800 rounded-full">
-                                    Logout
-                                </button>
-                            </li>
 
                             <li>
                                 <SettingsDropdown />
