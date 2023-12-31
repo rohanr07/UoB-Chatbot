@@ -1,18 +1,20 @@
 "use client";
 import React from 'react'
 import Link from 'next/link';
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 import Image from 'next/image';
 import MyImage from '/public/images/UoB_Logo.png';
 
 import SettingsDropdown from '@/app/components/Settings';
 
+import styles from '@/app/Navbar.module.css'
+
 const Navbar = () => {
     const {data: session} : any = useSession();
 
     return (
-        <div>
+        <div className={styles.navbar}>
             <ul className="flex justify-between m-10 item-center">
                 <div>
                     <a href="https://www.birmingham.ac.uk/index.aspx" target="_blank">
@@ -20,15 +22,13 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                <div>
-                    <Link href="/">
-                        <li>🏠</li>
-                    </Link>
-
-                </div>
-                <div className="flex gap-10">
+                <div className="flex gap-10 item-left">
                     {!session ? (
                         <>
+                                <Link href="/">
+                                    <li>🏠</li>
+                                </Link>
+
                             <Link href="/login">
                                 <li>Login</li>
                             </Link>
@@ -37,10 +37,10 @@ const Navbar = () => {
                                 <li>Register</li>
                             </Link>
                         </>
-                    ): (
+                    ) : (
                         <>
                             <Link href="/home">
-                                <li>Home</li>
+                            <li>Home</li>
                             </Link>
 
                             <Link href="/chatbot">
@@ -49,6 +49,10 @@ const Navbar = () => {
 
                             <Link href="/history">
                                 <li>Chat History</li>
+                            </Link>
+
+                            <Link href="/contact">
+                                <li> Help </li>
                             </Link>
 
                             {session.user.name}

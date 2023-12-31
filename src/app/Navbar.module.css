@@ -1,0 +1,18 @@
+/* Navbar.module.css */
+.navbar {
+  background-color: grey; /* Set the background color to light grey */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10rem; /* Adjust the height */
+  padding: 0 1rem; /* Add padding to create space around the links */
+}
+
+.navbar a {
+  color: black; /* Set the text color to black */
+}
+
+.navbar a:hover {
+  color: red; /* Set the text color to red on hover */
+}
+

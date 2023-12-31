@@ -1,0 +1,56 @@
+/* Contact.module.css */
+.contactContainer {
+    /*-webkit-appearance: none; Safari */
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    color: #fff;
+    position: relative;
+}
+
+/* Create the custom arrow */
+.select-with-custom-arrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px; /* Adjust as necessary */
+  transform: translateY(-50%);
+  border: solid black; /* This is the color of the arrow */
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: translateY(-50%) rotate(45deg);
+  /* Adjust the size as necessary */
+}
+
+/* Add specific height and padding to the select to make sure it has enough space for the arrow */
+.select-with-custom-arrow {
+  height: 2.5em; /* Example height, adjust as necessary */
+  padding-right: 30px; /* Example padding, adjust as necessary */
+}
+
+
+.contactContainer h1 {
+  margin-bottom: 2rem;
+}
+
+.contactContainer form {
+  width: 100%; /* Set the width to take the full container width */
+}
+
+.contactContainer input,
+.contactContainer select,
+.contactContainer textarea,
+.contactContainer button {
+    background: grey;
+    color: black;
+    width: 100%; /* Set the width to take the full container width */
+  margin-bottom: 1rem; /* Add some space between the form elements */
+}
+
+/* Add other styles as needed */
