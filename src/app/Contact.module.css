@@ -1,9 +1,9 @@
 /* Contact.module.css */
 .contactContainer {
     /*-webkit-appearance: none; Safari */
-    max-width: 600px;
+    max-width: 1000px;
     margin: auto;
-    padding: 20px;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;

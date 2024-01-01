@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
         <title>Contact Us</title>
       </Head>
       <div className={styles.contactContainer}>
-        <h1>Contact //</h1>
+        <h1>Contact</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
