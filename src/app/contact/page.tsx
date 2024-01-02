@@ -65,22 +65,37 @@ const Contact = () => {
               <form onSubmit={handleSubmit}>
                 <label>
                   Name:
-                  <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                </label><br />
+                  <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
+                </label><br/>
                 <label>
-                  Email:<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  Email:<input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                 </label>
-                <br />
+                <br/>
+                <select
+                    className={styles.selectWithCustomArrow}
+                    name="helpCategory"
+                    onChange={(e) => setEmail(e.target.value)}
+                    defaultValue=""
+                >
+                  <option value="" disabled>
+                    HOW CAN WE HELP YOU?
+                  </option>
+                  {/* Add options here */}
+                  <option value="change-order">Can't Register / Login</option>
+                  <option value="change-order">Chatbot Not Working Properly</option>
+                  <option value="change-order">Other</option>
+                  {/* ... other options ... */}
+                </select>
                 <label>
                   Message:
-                  <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
+                  <textarea value={message} onChange={(e) => setMessage(e.target.value)}/>
                 </label>
-                <br />
+                <br/>
                 <button type="submit">Submit Feedback</button>
               </form>
             </div>
           </>
       );
-    };
+};
 
 export default Contact;

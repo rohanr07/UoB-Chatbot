@@ -13,7 +13,7 @@ console.log(" name ", name);
         return NextResponse.json({error: 'User not authenticated'}, {status: 401});
     }
 
-    // Create a nodemailer transporter
+    // Creating nodemailer transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
      /*   host: 'smtp.gmail.com', // Gmail SMTP host
@@ -21,30 +21,26 @@ console.log(" name ", name);
     secure: false, // false for TLS - uses STARTTLS
       */
         auth: {
-        user: 'chatbotproj11@gmail.com',
-        pass: 'hape mdvs tjka avji'
-      //  user: 'rxr105uob@gmail.com', //'chatbotproj11@gmail.com',
-      //  pass: '$3W00dlands2!$' //'Chatbot11proj$',
+        user: process.env.ADMIN_EMAIL,
+            pass: process.env.ADMIN_EMAIL_PASSWORD
       },
     });
 
     // Setup email data
     const mailOptions = {
-      from: '" DO NOT REPLY chatbotproj11@gmail.com ',
-      to: 'chatbotproj11@gmail.com', //user,
-      subject: 'Feedback Submission ', // + user,
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+        from: `DO NOT REPLY <${process.env.ADMIN_EMAIL}>`,
+        to: process.env.ADMIN_EMAIL,
+        subject: 'Feedback Submission ',
+        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // message body in administrator's email
     };
 
-    // Send email
+    // Sending email from
     try {
       await transporter.sendMail(mailOptions);
       return new NextResponse("Feedback sent", { status: 200 } );
-     // res.status(200).json({ success: true });
     } catch (error) {
       console.error('Error sending email:', error);
        return new NextResponse("User is Registered", { status: 500 } );
-      //res.status(500).json({ success: false, error: 'Failed to send email.' });
     }
 
 }
