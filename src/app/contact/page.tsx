@@ -4,7 +4,7 @@ import Head from 'next/head';
 import styles from '@/app/Contact.module.css'
 import {getSession} from "next-auth/react";
 //import {router} from "next/client";
-import { useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Contact = () => {
   const router = useRouter()
