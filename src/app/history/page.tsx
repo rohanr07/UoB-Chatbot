@@ -1,9 +1,8 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useSession, getSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 import React from "react";
-import chatMessage from "@/models/ChatMessage";
 
 // Defining interface for chat message
 interface Message1 {

@@ -1,7 +1,6 @@
 .contactContainer {
     /*-webkit-appearance: none; Safari */
     max-width: 1000px;
-    margin: auto;
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -10,26 +9,11 @@
     background: #111;
     color: #fff;
     position: relative;
+    margin: auto;
 }
 
-/* Create the custom arrow */
-.select-with-custom-arrow::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: translateY(-50%) rotate(45deg);
-}
-
-/* Add specific height and padding to the select to make sure it has enough space for the arrow */
-.select-with-custom-arrow {
-  height: 2.5em; /* Example height, adjust as necessary */
-  padding-right: 30px; /* Example padding, adjust as necessary */
+.nameField {
+    margin-bottom: 70px;
 }
 
 
@@ -43,10 +27,33 @@
 
 .contactContainer input,
 .contactContainer select,
-.contactContainer textarea,
-.contactContainer button {
+.contactContainer textarea {
     background: grey;
     color: black;
-    width: 100%; /* Set the width to take the full container width */
-  margin-bottom: 1rem; /* Add some space between the form elements */
+    width: 100%;
+  margin-bottom: 1rem;
+}
+
+.textareaMessage {
+  width: 100%;
+  height: 150px;
+}
+
+.submitButton {
+  background-color: #FFC107; /* Yellow color */
+  border: none; /* Remove border */
+  color: black; /* Text color */
+  padding: 10px 20px; /* Padding inside the button */
+    float: right;
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove text decoration */
+  display: inline-block; /* Make it inline block */
+  font-size: 16px; /* Set font size */
+  margin: 4px 2px; /* Margin around the button */
+  cursor: pointer; /* Change mouse cursor on hover */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.submitButton:hover {
+  background-color: #FFCA28; /* Lighter yellow on hover */
 }
