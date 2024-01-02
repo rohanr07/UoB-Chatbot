@@ -5,6 +5,7 @@ import styles from '@/app/Contact.module.css'
 import {getSession} from "next-auth/react";
 //import {router} from "next/client";
 import { useRouter } from "next/navigation";
+import {useSession} from "next-auth/react";
 
 const Contact = () => {
   const router = useRouter()
@@ -82,7 +83,8 @@ const Contact = () => {
                   </option>
                   {/* Add options here */}
                   <option value="change-order">Can't Register / Login</option>
-                  <option value="change-order">Chatbot Not Working Properly</option>
+                  <option value="change-order">Chatbot Not Functioning Properly</option>
+                  <option value="change-order">Providing Wrong Information</option>
                   <option value="change-order">Other</option>
                   {/* ... other options ... */}
                 </select>
@@ -91,8 +93,9 @@ const Contact = () => {
                   <textarea value={message} onChange={(e) => setMessage(e.target.value)}/>
                 </label>
                 <br/>
-                <button type="submit">Submit Feedback</button>
+                {/*<button type="submit">Submit Feedback</button>*/}
               </form>
+              <button type="submit">Submit Feedback</button>
             </div>
           </>
       );

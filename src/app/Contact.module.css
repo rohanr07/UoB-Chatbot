@@ -1,4 +1,3 @@
-/* Contact.module.css */
 .contactContainer {
     /*-webkit-appearance: none; Safari */
     max-width: 1000px;
@@ -18,14 +17,13 @@
   content: '';
   position: absolute;
   top: 50%;
-  right: 15px; /* Adjust as necessary */
+  right: 15px;
   transform: translateY(-50%);
-  border: solid black; /* This is the color of the arrow */
+  border: solid black;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
   transform: translateY(-50%) rotate(45deg);
-  /* Adjust the size as necessary */
 }
 
 /* Add specific height and padding to the select to make sure it has enough space for the arrow */
@@ -40,7 +38,7 @@
 }
 
 .contactContainer form {
-  width: 100%; /* Set the width to take the full container width */
+  width: 100%; /* Setting width to full container width */
 }
 
 .contactContainer input,
@@ -52,5 +50,3 @@
     width: 100%; /* Set the width to take the full container width */
   margin-bottom: 1rem; /* Add some space between the form elements */
 }
-
-/* Add other styles as needed */
