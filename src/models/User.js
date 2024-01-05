@@ -17,6 +17,11 @@ const userSchema = new Schema(
             type: String,
             required: false,
         },
+        provider: {
+            type: String,
+            required: false,
+        },
+
     },
     { timestamps: true }
 );

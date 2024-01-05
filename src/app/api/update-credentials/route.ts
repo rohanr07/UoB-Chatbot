@@ -4,7 +4,7 @@ import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 import {authenticateUser, AuthResult} from "@/utils/authentication";
 //import {NextResponse} from "next/server";
-import connect from '@/utils/db';
+import connect from '@/utils/mongodb';
 
 
 // helper function to convert file readable stream into JSON

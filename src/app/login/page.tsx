@@ -82,7 +82,7 @@ const Login = () => {
                         type="submit"
                         className="w -full bg-blue-500 text-white py-2 rounded hover: bg-blue-600"
                     >
-                    {" "}
+                        {" "}
                         Sign in
                     </button>
                     <p className="text-red-600 text-[16px] mb-4"> {error && error}</p>
@@ -97,7 +97,19 @@ const Login = () => {
                     Sign in with GitHub
                 </button>
 
-                <div className ="text-center text-gray-500 mt-4">- OR -</div>
+                <br/>
+                <br/>
+
+                <button
+                    className="w -full bg-black text-white py-2 rounded hover: bg-gray-800"
+                    onClick={() => {
+                        signIn("google")
+                    }}
+                >
+                    Sign in with Google
+                </button>
+
+                <div className="text-center text-gray-500 mt-4">- OR -</div>
                 <Link
                     className="block text-center text-blue-500 hover:underline mt-2"
                     href="/register"

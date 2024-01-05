@@ -1,5 +1,5 @@
 import User from "@/models/User"
-import connect from "@/utils/db"
+import connect from "@/utils/mongodb"
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server"
 
@@ -19,7 +19,8 @@ export const POST = async (request: any) => {
     const newUser = new User ({
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        provider: 'credentials'
     })
 
 
