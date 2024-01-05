@@ -76,9 +76,14 @@ const Register = () => {
         }
     };
 
-    if (sessionStatus == 'loading') {
-        return <h1>Loading...</h1>;
-    }
+    if (sessionStatus === 'loading') {
+    return (
+        <div className="loadingContainer">
+            <h1>Loading...</h1>
+        </div>
+    );
+}
+
 
     return (
         sessionStatus != "authenticated" && (

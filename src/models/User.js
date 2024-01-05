@@ -21,6 +21,14 @@ const userSchema = new Schema(
             type: String,
             required: false,
         },
+        isVerified: {
+            type: Boolean,
+            required: false, // verification not required for Google or GitHub
+        },
+        verificationToken: {
+            type: String,
+            required: false, // token not required for Google or GitHub
+        },
 
     },
     { timestamps: true }

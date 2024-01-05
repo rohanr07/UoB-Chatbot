@@ -4,8 +4,9 @@ import {authenticateUser, AuthResult} from "@/utils/authentication";
 
 export const POST = async (request: any) => {
     console.log("at line 5 in POST");
-    const { name, email, message } = await request.json(); //req.body;
+    const { name, email, category, message } = await request.json(); //req.body;
 console.log(" name ", name);
+console.log(" category ", category);
 
 
     const {userEmail, session}: AuthResult = await authenticateUser(request);
@@ -29,8 +30,8 @@ console.log(" name ", name);
     // Setup email data
     const mailOptions = {
         from: `DO NOT REPLY <${process.env.ADMIN_EMAIL}>`,
-        to: process.env.ADMIN_EMAIL,
-        subject: 'Feedback Submission ',
+        to: "rxr105@student.bham.ac.uk", //process.env.ADMIN_EMAIL,
+        subject: `Category: ${category}`,
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // message body in administrator's email
     };
 
