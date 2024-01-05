@@ -22,11 +22,11 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                <div className="flex gap-10 item-left">
+                <div className="flex gap-10 items-center">
                     {!session ? (
                         <>
                                 <Link href="/">
-                                    <li>🏠</li>
+                                    <li>Home</li>
                                 </Link>
 
                             <Link href="/login">
@@ -55,11 +55,12 @@ const Navbar = () => {
                                 <li> Help </li>
                             </Link>
 
-                            {session.user.name}
-
-                            <li>
-                                <SettingsDropdown />
-                            </li>
+                            <div className="flex justify-end m-10 item-right gap-8">
+                                {session.user.name}
+                                <li>
+                                    <SettingsDropdown />
+                                </li>
+                            </div>
                         </>
                     )}
 
