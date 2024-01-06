@@ -1,18 +1,32 @@
-/* Navbar.module.css */
 .navbar {
-  background-color: grey; /* Set the background color to light grey */
+  background-color: grey;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10rem; /* Adjust the height */
-  padding: 0 1rem; /* Add padding to create space around the links */
+  padding: 0 2rem;
+  height: 100px;
 }
 
-.navbar a {
-  color: black; /* Set the text color to black */
+.logo {
+  /* If you need to adjust the logo size or add more styles, do it here */
 }
 
-.navbar a:hover {
-  color: red; /* Set the text color to red on hover */
+.navLinks {
+  display: flex;
+  gap: 10px;
+  list-style-type: none; /* Removes default list styling */
+  margin: 0; /* Resets default margin */
+  padding: 0; /* Resets default padding */
 }
 
+.navLinks li {
+  padding: 0.5rem 1rem; /* Adds padding to each link for better clickability */
+}
+
+.userSettings {
+  display: flex;
+  gap: 10px;
+  align-items: center; /* Aligns items vertically in the center */
+}
+
+/* Add other styles for hover effects, colors, etc., as needed */
