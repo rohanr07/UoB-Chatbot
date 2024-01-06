@@ -7,6 +7,7 @@ import nodemailer from 'nodemailer';
 
 function generateVerificationToken() {
     const token: String = crypto.randomBytes(32).toString('hex');
+    console.log("Token Generated: ", token)
     return token
 }
 
@@ -58,13 +59,11 @@ export const POST = async (request: any) => {
         verificationToken: generateVerificationToken()
     });
 
-    console.log("At line 60")
-
-
     try {
         await newUser.save();
+        console.log("New User Saved")
 
-        const verificationLink = `http://localhost:3000/verify?token=${newUser.verificationToken}`;
+        const verificationLink = `http://localhost:3000/verify?email=${newUser.email}&token=${newUser.verificationToken}`;
         await sendVerificationEmail(newUser.email,verificationLink);
 
         return new NextResponse("User is Registered", { status: 200 } );
