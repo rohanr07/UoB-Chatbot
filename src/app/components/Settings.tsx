@@ -1,13 +1,39 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { useRouter } from 'next/navigation';
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 const SettingsDropdown = () => {
   const [isHovering, setIsHovering] = useState(false);
-  const router = useRouter(); // This is called at the top level of a functional component
+  const router = useRouter();
+  const { data: session } = useSession();
+  const [passChangePermitted, setPasswordChangePermitted] = useState(false);
+
+
+  useEffect(() => {
+    async function fetchProvider() {
+      if (session?.user) {
+        console.log("inside change provider line 15")
+        const response = await fetch('/api/check-provider', {
+                                                method: "GET",
+                                                headers: {
+                                                          "Content-Type": "application/json"
+                                                         }
+        })
+        if (response.ok) {
+          const data = await response.json();
+          setPasswordChangePermitted(true)
+          console.log(" PasswordChangePermitted set to true")
+        } else {
+          setPasswordChangePermitted(false)
+             console.log(" PasswordChangePermitted set to false")
+        }
+      }
+    }
+    fetchProvider();
+  }, []);
 
   const menuItems = [
-    {name: 'Change Password', route: '/change-credentials'},
+    {name: 'Change Password', route: '/change-credentials', passwordChangePermitted: true},
     {name: 'DarkMode/LightMode', route: '/history'},
     {name: 'Signout', route: '/api/auth/signout'},
   ];
