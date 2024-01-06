@@ -34,20 +34,23 @@ const VerifyPage = () => {
       });
 
       const data = await response.json();
+      console.log("Response: ", response);
+      console.log("Data: ", data);
+
       if (response.ok) {
-        setVerificationStatus('Verification successful.');
+        setVerificationStatus('Verification Successful');
         // You can redirect or perform other actions here
       } else {
-        setVerificationStatus('Verification failed: ' + data.message);
+        setVerificationStatus('Verification Failed: ' + data.error);
       }
     } catch (error) {
-      console.error('Verification request failed', error);
-      setVerificationStatus('Verification request failed.');
+      console.error('Verification Request Failed', error);
+      setVerificationStatus('Verification Request Failed');
     }
   };
 
   return (
-    <div>
+    <div >
       <h1>Verification Page</h1>
       <p>{verificationStatus || 'Verifying...'}</p>
     </div>

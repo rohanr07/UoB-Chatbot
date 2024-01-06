@@ -31,11 +31,10 @@ async function sendVerificationEmail(email: string, verificationLink: string) {
         await transporter.sendMail(mailOptions);
         return true;
     } catch (error) {
-        console.error('Error sending email:', error);
+        console.log('Error sending email:', error);
         return false;
     }
 }
-
 
 export const POST = async (request: any) => {
     const {name, email , password}= await request.json();

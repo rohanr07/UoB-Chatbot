@@ -2,12 +2,9 @@
 import React from 'react'
 import Link from 'next/link';
 import { useSession } from "next-auth/react";
-
 import Image from 'next/image';
 import MyImage from '/public/images/UoB_Logo.png';
-
 import SettingsDropdown from '@/app/components/Settings';
-
 import styles from '@/app/Navbar.module.css'
 
 const Navbar = () => {
