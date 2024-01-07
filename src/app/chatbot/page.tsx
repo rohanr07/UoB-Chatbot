@@ -1,7 +1,5 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import styles from '@/app/Pages.module.css'
-
 import { Message } from "@/types/message";
 // importing library to use the icons
 import { Send } from "react-feather";
@@ -9,6 +7,7 @@ import LoadingDots from "@/app/components/LoadingDots";
 import {useSession} from "next-auth/react";
 import { useSearchParams} from "next/navigation";
 import { questions } from "@/app/components/homePrompt"
+import styles from '@/app/Pages.module.css'
 
     export default function Chatbot() {
 

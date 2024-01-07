@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import {useSession} from "next-auth/react";
+import styles from '@/app/Pages.module.css'
 
 const Register = () => {
 
@@ -87,69 +88,67 @@ const Register = () => {
 
     return (
         sessionStatus != "authenticated" && (
-        <div className="flex min-h-screen lex-col items-center justify-between p-24">
-            <div className="bg-[#212121 p-8rounded shadow-md w-96">
-                <h1 className="text-4xl text-center font-semibold mb-8" >Register</h1>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
-                        placeholder="Name"
-                        required
-                    />
+            <div className={styles.pageContainer}>
+                    <div className="bg-[#212121 p-8rounded shadow-md w-96">
+                        <h1 className="text-4xl text-center font-semibold mb-8">Register</h1>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                placeholder="Name"
+                                required
+                            />
 
-                    <input
-                        type="text"
-                        className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
-                        placeholder="Email"
-                        required
-                    />
+                            <input
+                                type="text"
+                                className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                placeholder="Email"
+                                required
+                            />
 
-                    <input
-                        type="password"
-                        className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
-                        placeholder="Password"
-                        required
-                    />
+                            <input
+                                type="password"
+                                className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                placeholder="Password"
+                                required
+                            />
 
-                    <button
-                        type="submit"
-                        className="w -full bg-blue-500 text-white py-2 rounded hover: bg-blue-600"
-                    >
-                    {" "}
-                        Register
-                    </button>
+                            <button
+                                type="submit"
+                                className={styles.button}
+                            >
+                                {" "}
+                                Register
+                            </button>
 
-                    <br/>
-                    <br/>
+                            <br/>
+                            <br/>
 
-                        <p className="text-sm font-medium text-red-700">
-                            <b>Password must contain...</b>
-                            <ul>
-                                    <li>• At least 7 characters long </li>
-                                    <li>• An uppercase character </li>
-                                    <li>• A lowercase character </li>
-                                    <li>• A number </li>
-                            </ul>
-                        </p>
-
-
+                            <p className="text-sm font-medium text-red-700">
+                                <b>Password must contain...</b>
+                                <ul>
+                                    <li>• At least 7 characters long</li>
+                                    <li>• An uppercase character</li>
+                                    <li>• A lowercase character</li>
+                                    <li>• A number</li>
+                                </ul>
+                            </p>
 
 
-                    <p className="text-red-600 text-[16px] mb-4"> {error && error}</p>
+                            <p className="text-red-600 text-[16px] mb-4"> {error && error}</p>
 
-                </form>
-                <div className ="text-center text-gray-500 mt-4">- OR -</div>
-                <Link
-                    className="block text-center text-blue-500 hover:underline mt-2"
-                    href="/login"
-                >
-                    Login with an existing account
-                </Link>
+                        </form>
+                        <div className="text-center text-gray-500 mt-4">- OR -</div>
+                        <Link
+                            className="block text-center text-blue-500 hover:underline mt-2"
+                            href="/login"
+                        >
+                            Login with an existing account
+                        </Link>
+                    </div>
             </div>
-        </div>
-        )
-    );
+)
+);
 };
 
 export default Register

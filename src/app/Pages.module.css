@@ -1,8 +1,8 @@
+/* Used on Help Screen, Register Screen, Login Screen  */
 .pageContainer {
-    /*-webkit-appearance: none; Safari */
     max-width: 1000px;
-    padding: 50px;
     display: flex;
+    padding: 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -13,10 +13,9 @@
 }
 
 .pageContainer textarea:focus {
-    border: 5px solid black; /* Adjust the thickness of the border as needed */
-    outline: none; /* Removes the default outline to ensure only your border is visible */
+    border: 5px solid black;
+    outline: none;
 }
-
 
 .nameField {
     margin-bottom: 70px;
@@ -29,14 +28,12 @@
 }
 
 .pageBackground {
-  height: 100vh; /* Equivalent to h-screen in Tailwind */
-  background-color: #edf2f7; /* Equivalent to bg-gray-200 in Tailwind */
-  padding: 1.5rem; /* Equivalent to p-6 in Tailwind */
+  height: 100vh;
+  background-color: #edf2f7;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
 }
-
-
 
 .pageContainer h1 {
   margin-bottom: 2rem;
@@ -58,24 +55,24 @@
 .textareaMessage {
   width: 100%;
   height: 150px;
-
 }
 
-.submitButton {
-  background-color: #FFC107; /* Yellow color */
-  border: none; /* Remove border */
-  color: black; /* Text color */
-  padding: 10px 20px; /* Padding inside the button */
+.button {
+  background-color: #FFC107;
+  border: none;
+  color: black;
+  padding: 10px 20px;
     float: right;
-  text-align: center; /* Center the text */
-  text-decoration: none; /* Remove text decoration */
-  display: inline-block; /* Make it inline block */
-  font-size: 16px; /* Set font size */
-  margin: 4px 2px; /* Margin around the button */
-  cursor: pointer; /* Change mouse cursor on hover */
-  border-radius: 8px; /* Rounded corners */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
 }
 
-.submitButton:hover {
-  background-color: #FFCA28; /* Lighter yellow on hover */
+.button:hover {
+  background-color: #FFCA28;
 }
+

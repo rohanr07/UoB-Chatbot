@@ -98,7 +98,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <button type="submit" className={styles.submitButton}>Submit Feedback</button>
+              <button type="submit" className={styles.button}>Submit Feedback</button>
             </div>
           </form>
         </div>

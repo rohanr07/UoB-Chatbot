@@ -3,6 +3,11 @@ import React, {useEffect, useState} from "react";
 import Link from "next/link"; 
 import { useRouter } from "next/navigation";
 import { signIn , useSession } from "next-auth/react";
+import styles from "@/app/Pages.module.css";
+import GitHubImage from '/public/images/GitHubSignIn.png';
+import MyImage from "*.png";
+import Image from "next/image";
+
 const Login = () => {
 
     const router = useRouter();
@@ -60,7 +65,7 @@ const Login = () => {
 
     return (
         sessionStatus != "authenticated" && (
-        <div className="flex min-h-screen lex-col items-center justify-between p-24">
+        <div className={styles.pageContainer}>
             <div className="bg-[#212121 p-8rounded shadow-md w-96">
                 <h1 className="text-4xl text-center font-semibold mb-8">Login</h1>
                 <form onSubmit={handleSubmit}>
@@ -80,34 +85,20 @@ const Login = () => {
 
                     <button
                         type="submit"
-                        className="w -full bg-blue-500 text-white py-2 rounded hover: bg-blue-600"
+                        className={styles.button}
                     >
                         {" "}
-                        Sign in
+                        Sign In
                     </button>
                     <p className="text-red-600 text-[16px] mb-4"> {error && error}</p>
                 </form>
 
-                <button
-                    className="w -full bg-black text-white py-2 rounded hover: bg-gray-800"
-                    onClick={() => {
-                        signIn("github")
-                    }}
-                >
-                    Sign in with GitHub
-                </button>
-
-                <br/>
-                <br/>
-
-                <button
-                    className="w -full bg-black text-white py-2 rounded hover: bg-gray-800"
-                    onClick={() => {
-                        signIn("google")
-                    }}
-                >
-                    Sign in with Google
-                </button>
+                <a href="/api/auth/signin/github" className="github-signin">
+                        <Image src={GitHubImage} alt="Sign in With GitHub button"
+                        width={200} // Adjust the width as necessary
+                        height={50} // Adjust the height as necessary
+                    />
+                </a>
 
                 <div className="text-center text-gray-500 mt-4">- OR -</div>
                 <Link

@@ -41,21 +41,26 @@ const Homepage = async () => {
         boxSizing: 'border-box',      // Include padding and border in the element's total width
     };
 
+    const getRandomQuestion = () => {
+        const randomIndex = Math.floor(Math.random() * questions.length);
+        return questions[randomIndex];
+    };
+
     return (
         <div style={containerStyle}>
             <div style={columnStyle}>
                 <div style={boxStyle}>
                     <HomePageButtons
                         destination="/chatbot"
-                        buttonText = {questions[0]}
-                        message = {questions[0]}
+                        buttonText = {getRandomQuestion()}
+                        message = {getRandomQuestion()}
                     />
                 </div>
                 <div style={boxStyle}>
                     <HomePageButtons
                         destination="/chatbot"
-                        buttonText = {questions[1]}
-                        message = {questions[1]}
+                        buttonText = {getRandomQuestion()}
+                        message = {getRandomQuestion()}
                     />
                 </div>
             </div>
@@ -63,15 +68,15 @@ const Homepage = async () => {
                 <div style={boxStyle}>
                     <HomePageButtons
                         destination="/chatbot"
-                        buttonText = {questions[2]}
-                        message = {questions[2]}
+                        buttonText = {getRandomQuestion()}
+                        message = {getRandomQuestion()}
                     />
                 </div>
                 <div style={boxStyle}>
                     <HomePageButtons
                         destination="/chatbot"
-                        buttonText = {questions[3]}
-                        message = {questions[3]}
+                        buttonText = {getRandomQuestion()}
+                        message = {getRandomQuestion()}
                     />
                 </div>
             </div>
