@@ -1,14 +1,16 @@
 .navbar {
-  background-color: grey;
+  background-color: #404040;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
   height: 100px;
+  font-family: Georgia, serif;
+  font-size: 24.75px;
 }
 
 .navbar a {
-  color: black;
+  color: rgb(220, 220, 112);
 }
 
 .navbar a:hover {
@@ -20,19 +22,17 @@
 .navLinks {
   display: flex;
   gap: 10px;
-  list-style-type: none; /* Removes default list styling */
-  margin: 0; /* Resets default margin */
-  padding: 0; /* Resets default padding */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navLinks li {
-  padding: 0.5rem 1rem; /* Adds padding to each link for better clickability */
+  padding: 0.5rem 1rem;
 }
 
 .userSettings {
   display: flex;
-  gap: 10px;
-  align-items: center; /* Aligns items vertically in the center */
+  gap: 50px;
+  align-items: center;
 }
-
-/* Add other styles for hover effects, colors, etc., as needed */

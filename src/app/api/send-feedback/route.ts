@@ -22,15 +22,15 @@ console.log(" category ", category);
     secure: false, // false for TLS - uses STARTTLS
       */
         auth: {
-        user: process.env.ADMIN_EMAIL,
-            pass: process.env.ADMIN_EMAIL_PASSWORD
+        user: process.env.SERVER_EMAIL,
+            pass: process.env.SERVER_PASSWORD
       },
     });
 
     // Setup email data
     const mailOptions = {
         from: `DO NOT REPLY <${process.env.ADMIN_EMAIL}>`,
-        to: "rxr105@student.bham.ac.uk", //process.env.ADMIN_EMAIL,
+        to: process.env.ADMIN_EMAIL,
         subject: `Category: ${category}`,
         text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // message body in administrator's email
     };
@@ -38,10 +38,9 @@ console.log(" category ", category);
     // Sending email from
     try {
       await transporter.sendMail(mailOptions);
-      return new NextResponse("Feedback sent", { status: 200 } );
+      return NextResponse.json({message: 'Feedback sent'}, { status: 200 } );
     } catch (error) {
       console.error('Error sending email:', error);
-       return new NextResponse("User is Registered", { status: 500 } );
+       return NextResponse.json({error: 'Error Sending Feedback'}, { status: 500 } );
     }
-
 }

@@ -49,7 +49,7 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        console.log('Feedback sent successfully!');
+        console.log('Feedback Sent Successfully!');
         // Consider redirecting the user or showing a success message
       } else {
         console.error('Failed to send feedback.');

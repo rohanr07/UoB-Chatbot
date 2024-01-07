@@ -48,7 +48,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       const user = await User.findOneAndUpdate(
         { email: email, verificationToken: token, isVerified: false },
         { $set: { isVerified: true, verificationToken: null } },
-        //{ new: true }
+        { new: true }
       );
     console.log("email   :", email)
     console.log("token   :", token)
