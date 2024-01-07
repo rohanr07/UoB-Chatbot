@@ -41,10 +41,16 @@ const Homepage = async () => {
         boxSizing: 'border-box',      // Include padding and border in the element's total width
     };
 
-    const getRandomQuestion = () => {
-        const randomIndex = Math.floor(Math.random() * questions.length);
-        return questions[randomIndex];
+    const shuffleArray = (array: string[]) => {
+        const shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
     };
+
+const shuffledQuestions = shuffleArray(questions.slice());
 
     return (
         <div style={containerStyle}>
@@ -52,15 +58,15 @@ const Homepage = async () => {
                 <div style={boxStyle}>
                     <HomePageButtons
                         destination="/chatbot"
-                        buttonText = {getRandomQuestion()}
-                        message = {getRandomQuestion()}
+                        buttonText = {shuffledQuestions[0]}
+                        message = {shuffledQuestions[0]}
                     />
                 </div>
                 <div style={boxStyle}>
                     <HomePageButtons
                         destination="/chatbot"
-                        buttonText = {getRandomQuestion()}
-                        message = {getRandomQuestion()}
+                        buttonText = {shuffledQuestions[1]}
+                        message = {shuffledQuestions[1]}
                     />
                 </div>
             </div>
@@ -68,15 +74,15 @@ const Homepage = async () => {
                 <div style={boxStyle}>
                     <HomePageButtons
                         destination="/chatbot"
-                        buttonText = {getRandomQuestion()}
-                        message = {getRandomQuestion()}
+                        buttonText = {shuffledQuestions[2]}
+                        message = {shuffledQuestions[2]}
                     />
                 </div>
                 <div style={boxStyle}>
                     <HomePageButtons
                         destination="/chatbot"
-                        buttonText = {getRandomQuestion()}
-                        message = {getRandomQuestion()}
+                        buttonText = {shuffledQuestions[3]}
+                        message = {shuffledQuestions[3]}
                     />
                 </div>
             </div>
