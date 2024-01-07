@@ -1,4 +1,4 @@
-.contactContainer {
+.pageContainer {
     /*-webkit-appearance: none; Safari */
     max-width: 1000px;
     padding: 50px;
@@ -12,31 +12,53 @@
     margin: auto;
 }
 
+.pageContainer textarea:focus {
+    border: 5px solid black; /* Adjust the thickness of the border as needed */
+    outline: none; /* Removes the default outline to ensure only your border is visible */
+}
+
+
 .nameField {
     margin-bottom: 70px;
 }
 
+.pageTitle {
+    font-family: Georgia, Serif;
+    font-size: 37px;
+    color: black;
+}
 
-.contactContainer h1 {
+.pageBackground {
+  height: 100vh; /* Equivalent to h-screen in Tailwind */
+  background-color: #edf2f7; /* Equivalent to bg-gray-200 in Tailwind */
+  padding: 1.5rem; /* Equivalent to p-6 in Tailwind */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.pageContainer h1 {
   margin-bottom: 2rem;
 }
 
-.contactContainer form {
+.pageContainer form {
   width: 100%; /* Setting width to full container width */
 }
 
-.contactContainer input,
-.contactContainer select,
-.contactContainer textarea {
+.pageContainer input,
+.pageContainer select,
+.pageContainer textarea {
     background: grey;
     color: black;
     width: 100%;
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .textareaMessage {
   width: 100%;
   height: 150px;
+
 }
 
 .submitButton {

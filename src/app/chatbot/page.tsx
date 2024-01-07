@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import styles from '@/app/Pages.module.css'
 
 import { Message } from "@/types/message";
 // importing library to use the icons
@@ -84,22 +85,24 @@ import { questions } from "@/app/components/homePrompt"
         }, [message]);
 
         return (
-            <main className="h-screen bg-gray-700 p-6 flex flex-col">
+            //<main className="h-screen bg-gray-200 p-6 flex flex-col">
+            <main className={styles.pageBackground}>
                 <div className="flex flex-col gap-8 w-full items-center flex-grow max-h-full">
-                    <h1 className="text-4xl text-transparent bg-clip-text bg-gradient-to-t from-red-600 to-blue-600 to-yellow-600 font-family: New Baskerville ITC;">
+
+                    <h1 className={styles.pageTitle}>
                         University of Birmingham Chatbot
                     </h1>
-                        <form
-                            className="rounded-2xl border-orange-500 border-opacity-5 border lg:w-full flex-grow flex flex-col max-h-full overflow-clip"
-                            style={{
-                                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('/images/bg.png')`,
-                                backgroundSize: 'cover',
+                    <form
+                        className="rounded-2xl border-orange-500 border-opacity-5 border lg:w-full flex-grow flex flex-col max-h-full overflow-clip"
+                        style={{
+                            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url('/images/bg.png')`,
+                            backgroundSize: 'cover',
                         }}
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                handleClick();
-                            }}
-                            >
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            handleClick();
+                        }}
+                    >
                         <div className="overflow-y-scroll flex flex-col gap-5 p-10 h-full">
                             {history.map((message: Message, idx) => {
                                 const isLastMessage = idx === history.length - 1;
@@ -121,7 +124,7 @@ import { questions } from "@/app/components/homePrompt"
                                                         AI assistant
                                                     </p>
                                                     <p className="text-sm font-medium text-black-500 mb-2">
-                                                    {message.content}
+                                                        {message.content}
                                                     </p>
                                                     {message.links && (
                                                         <div className="mt-4 flex flex-col gap-2">
@@ -156,7 +159,7 @@ import { questions } from "@/app/components/homePrompt"
                                                     You
                                                 </p>
                                                 <p className="text-sm font-medium text-black-500 mb-2">
-                                                {message.content}
+                                                    {message.content}
                                                 </p>
                                             </div>
                                         );

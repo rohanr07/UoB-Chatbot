@@ -34,7 +34,6 @@ const SettingsDropdown = () => {
 
   const menuItems = [
     {name: 'Change Password', route: '/change-credentials', passwordChangePermitted: true},
-    {name: 'DarkMode/LightMode', route: '/history'},
     {name: 'Signout', route: '/api/auth/signout'},
   ];
 

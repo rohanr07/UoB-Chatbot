@@ -1,9 +1,8 @@
 "use client";
 import React, {useEffect, useState} from 'react';
 import Head from 'next/head';
-import styles from '@/app/Contact.module.css'
+import styles from '@/app/Pages.module.css'
 import { getSession } from "next-auth/react";
-//import { useRouter } from "next/router"; // Note: Use "next/router" instead of "next/navigation"
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
@@ -11,10 +10,9 @@ const Contact = () => {
   const router = useRouter();
   const { data: session } : any = useSession();
   const [category, setCategory] = useState('');
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
-    // Define the async function inside useEffect
     const checkSession = async () => {
       const session = await getSession();
 
@@ -64,7 +62,7 @@ const Contact = () => {
         <Head>
           <title>Contact Us</title>
         </Head>
-        <div className={styles.contactContainer}>
+        <div className={styles.pageContainer}>
           <h1>Contact</h1>
           <form onSubmit={handleSubmit}>
             <div className={styles.nameField}>
@@ -77,6 +75,7 @@ const Contact = () => {
                 //className={styles.nameField}
                 onChange={(e) => setCategory(e.target.value)}
                 defaultValue=""
+                required
             >
               <option value="" disabled>
                 HOW CAN WE HELP YOU?
@@ -89,12 +88,13 @@ const Contact = () => {
               {/* ... other options ... */}
             </select>
             <div>
-              Message:
+              Comments on the chatbot:
               <textarea
                   className={styles.textareaMessage}
                   name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  required
               />
             </div>
             <div>

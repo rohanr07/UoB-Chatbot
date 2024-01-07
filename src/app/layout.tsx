@@ -27,6 +27,9 @@ export default async function RootLayout({
                 <Navbar/>
                 {children}
             </div>
+            <footer className="text-center py-4 bg-black-50 fixed bottom-0 right-0 left-0">
+                <p>© {new Date().getFullYear()} Developed by Rohan Renganathan</p>
+            </footer>
         </SessionProvider>
         </body>
         </html>
