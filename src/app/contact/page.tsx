@@ -52,6 +52,10 @@ const Contact = () => {
       if (response.ok) {
         setContactEmailStatus('Feedback Sent Successfully!');
         console.log("Set Contact email is set")
+
+        setTimeout(() => {
+                router.push('/home');
+            }, 1500);
       } else {
         setContactEmailStatus('Feedback Failed to Send');
         console.log("Not Set")
@@ -76,10 +80,10 @@ const Contact = () => {
           <h1>Contact</h1>
           <form onSubmit={handleSubmit}>
             <div className={styles.nameField}>
-              Name: <span>{session?.user?.name || ''}</span>
+              Name: {session?.user?.name || ''}
             </div>
             <div className={styles.nameField}>
-              Email: <span>{session?.user?.email || ''}</span>
+              Email: {session?.user?.email || ''}
             </div>
             <select
                 //className={styles.nameField}
