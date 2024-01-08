@@ -2,6 +2,7 @@ import nodemailer from 'nodemailer';
 import { NextResponse } from "next/server";
 import {authenticateUser, AuthResult} from "@/utils/authentication";
 
+
 export const POST = async (request: any) => {
     console.log("at line 5 in POST");
     const { name, email, category, message } = await request.json(); //req.body;
@@ -27,7 +28,6 @@ console.log(" category ", category);
       },
     });
 
-    // Setup email data
     const mailOptions = {
         from: `DO NOT REPLY <${process.env.ADMIN_EMAIL}>`,
         to: process.env.ADMIN_EMAIL,
@@ -38,9 +38,10 @@ console.log(" category ", category);
     // Sending email from
     try {
       await transporter.sendMail(mailOptions);
-      return NextResponse.json({message: 'Feedback sent'}, { status: 200 } );
+      console.log("Feedback Sent from Route")
+      return NextResponse.json({message: 'Feedback Sent Successfully!'}, { status: 200 } );
     } catch (error) {
       console.error('Error sending email:', error);
-       return NextResponse.json({error: 'Error Sending Feedback'}, { status: 500 } );
+       return NextResponse.json({error: 'Feedback Failed to Send'}, { status: 500 } );
     }
 }

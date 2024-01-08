@@ -39,7 +39,6 @@ const VerifyPage = () => {
 
       if (response.ok) {
         setVerificationStatus('Verification Successful');
-        // You can redirect or perform other actions here
       } else {
         setVerificationStatus('Verification Failed: ' + data.error);
       }
@@ -50,7 +49,7 @@ const VerifyPage = () => {
   };
 
   return (
-    <div >
+    <div>
       <h1>Verification Page</h1>
       <p>{verificationStatus || 'Verifying...'}</p>
     </div>

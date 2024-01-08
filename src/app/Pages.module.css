@@ -57,6 +57,11 @@
   height: 150px;
 }
 
+/* Used in Help Screen */
+.serverMessage {
+    color: green;
+}
+
 .button {
   background-color: #FFC107;
   border: none;

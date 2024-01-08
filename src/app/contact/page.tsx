@@ -11,6 +11,7 @@ const Contact = () => {
   const { data: session } : any = useSession();
   const [category, setCategory] = useState('');
   const [message, setMessage] = useState('')
+  const [contactEmailStatus, setContactEmailStatus] = useState<string>('');
 
   useEffect(() => {
     const checkSession = async () => {
@@ -46,16 +47,25 @@ const Contact = () => {
         body: JSON.stringify(feedbackData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        console.log('Feedback Sent Successfully!');
-        // Consider redirecting the user or showing a success message
+        setContactEmailStatus('Feedback Sent Successfully!');
+        console.log("Set Contact email is set")
       } else {
-        console.error('Failed to send feedback.');
+        setContactEmailStatus('Feedback Failed to Send');
+        console.log("Not Set")
       }
     } catch (error) {
+      setContactEmailStatus('Feedback Failed. Error: '+error);
       console.error('Error sending feedback:', error);
     }
   };
+
+  useEffect(() => {
+    console.log("contactEmailStatus updated: ", contactEmailStatus);
+    }, [contactEmailStatus]);
+
 
   return (
       <>
@@ -100,6 +110,11 @@ const Contact = () => {
             <div>
               <button type="submit" className={styles.button}>Submit Feedback</button>
             </div>
+
+            <div className={styles.serverMessage}>
+              <p>{contactEmailStatus}</p>
+            </div>
+
           </form>
         </div>
       </>
