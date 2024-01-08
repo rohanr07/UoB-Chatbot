@@ -10,8 +10,17 @@
     color: #fff;
     position: relative;
     margin: auto;
-    font-family: "Avenir Next";
+    font-family: Avenir Next, Avenir, serif;
     font-size: 22px;
+}
+
+.pageContainer select {
+    font-size: 18px;
+}
+
+.pageContainer select:focus {
+    border: 5px solid yellowgreen;
+    outline: none;
 }
 
 .pageContainer h1 {
@@ -19,7 +28,7 @@
 }
 
 .pageContainer form {
-  width: 100%; /* Setting width to full container width */
+  width: 100%;
 }
 
 .pageContainer input,
@@ -35,7 +44,6 @@
     border: 5px solid black;
     outline: none;
 }
-
 .pageBackground {
   height: 100vh;
   background-color: #edf2f7;
@@ -45,7 +53,7 @@
 }
 
 .pageTitle {
-    font-family: Georgia, Serif;
+    font-family: Georgia, serif;
     font-size: 37px;
     color: black;
 }
@@ -85,7 +93,7 @@
 }
 
 .optionDropDown:focus {
-    border: 5px solid black;
+    border: 5px solid yellowgreen;
     outline: none;
 }
 
@@ -93,3 +101,21 @@
     color: grey;
     font-size: 18px;
 }
+
+.radioGroup {
+  display: flex;
+    justify-content: center;
+  align-items: center;
+  gap: 10px; /* Adjust the gap as needed */
+}
+
+/* Aligns the text next to the radio button */
+.radioGroup label {
+  margin-right: 20px; /* Adjust the space between label and the next radio button as needed */
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;     /* This will vertically center the text next to the radio button */
+}
+

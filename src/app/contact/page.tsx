@@ -41,7 +41,11 @@ const Contact = () => {
       name: session?.user?.name,
       email: session?.user?.email,
       category,
-      message
+      message,
+      availability,
+      visualAppeal,
+      easeOfUse,
+      overallImpression
     };
 
     try {
@@ -211,10 +215,8 @@ const Contact = () => {
                 <label htmlFor="respondNo">No</label>
               </div>
             </div>
-
-
             <div>
-              <button type="submit" className={styles.button}>Submit Feedback</button>
+              <button type="submit" className={styles.button}>SUBMIT</button>
             </div>
 
             <div className={styles.serverMessage}>

@@ -5,7 +5,7 @@ import {authenticateUser, AuthResult} from "@/utils/authentication";
 
 export const POST = async (request: any) => {
     console.log("at line 5 in POST");
-    const { name, email, category, message } = await request.json(); //req.body;
+    const { name, email, category, message, availability, visualAppeal, easeOfUse, overallImpression } = await request.json();
 console.log(" name ", name);
 console.log(" category ", category);
 
@@ -32,7 +32,13 @@ console.log(" category ", category);
         from: `DO NOT REPLY <${process.env.ADMIN_EMAIL}>`,
         to: process.env.ADMIN_EMAIL,
         subject: `Category: ${category}`,
-        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // message body in administrator's email
+        text: `Name: ${name}\n
+        Email: ${email}\n
+        Message: ${message}\n
+        Availability: ${availability}\n
+        visualAppeal:  ${visualAppeal}\n
+        easeOfUse: ${easeOfUse}\n 
+        overallImpression: ${overallImpression}\n` // message body in administrator's email
     };
 
     // Sending email from
