@@ -6,33 +6,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #111;
+    background: #222;
     color: #fff;
     position: relative;
     margin: auto;
-}
-
-.pageContainer textarea:focus {
-    border: 5px solid black;
-    outline: none;
-}
-
-.nameField {
-    margin-bottom: 70px;
-}
-
-.pageTitle {
-    font-family: Georgia, Serif;
-    font-size: 37px;
-    color: black;
-}
-
-.pageBackground {
-  height: 100vh;
-  background-color: #edf2f7;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
+    font-family: "Avenir Next";
+    font-size: 22px;
 }
 
 .pageContainer h1 {
@@ -52,9 +31,33 @@
     margin-bottom: 1rem;
 }
 
+.pageContainer textarea:focus {
+    border: 5px solid black;
+    outline: none;
+}
+
+.pageBackground {
+  height: 100vh;
+  background-color: #edf2f7;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageTitle {
+    font-family: Georgia, Serif;
+    font-size: 37px;
+    color: black;
+}
+
+.nameField {
+    margin-bottom: 20px;
+}
+
 .textareaMessage {
   width: 100%;
   height: 150px;
+    min-height: 175px
 }
 
 /* Used in Help Screen */
@@ -81,3 +84,12 @@
   background-color: #FFCA28;
 }
 
+.optionDropDown:focus {
+    border: 5px solid black;
+    outline: none;
+}
+
+.messageDropDown {
+    color: grey;
+    font-size: 18px;
+}
