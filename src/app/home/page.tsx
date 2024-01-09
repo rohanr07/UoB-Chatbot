@@ -16,29 +16,29 @@ const Homepage = async () => {
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'flex-end',
-        height: 'calc(100vh - 200px)', //height: `calc(100vh - ${navBarHeight}px)`,
+        height: 'calc(100vh - 200px)',
         padding: '0',
         margin: '0',
         boxSizing: 'border-box'
     };
 
     const columnStyle: React.CSSProperties = {
-        display: 'flex',          // Enable flex container
-        flexDirection: 'column',  // Arrange items in a column
-        justifyContent: 'flex-end', // Align items to the end of the container (bottom)
-        width: '50%',             // Take up half of the container width
-        alignItems: 'center',     // Center items on the cross axis
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        width: '50%',
+        alignItems: 'center',
     };
 
     const boxStyle: React.CSSProperties = {
-        border: "2px solid #555",     // Dark grey border
+        border: "2px solid #555",
         padding: "10px",
-        margin: "7px 0",              // Only add vertical margin
+        margin: "7px 0",
         borderRadius: "25px",
-        backgroundColor: "#ccc",      // Light grey background color
-        boxShadow: "5px 5px 7px #888",// 3D box shadow
-        width: '90%',                 // Width slightly less than the container to account for padding
-        boxSizing: 'border-box',      // Include padding and border in the element's total width
+        backgroundColor: "#ccc",
+        boxShadow: "5px 5px 7px #888",
+        width: '90%',
+        boxSizing: 'border-box',
     };
 
     const shuffleArray = (array: string[]) => {
