@@ -45,7 +45,8 @@ const Contact = () => {
       availability,
       visualAppeal,
       easeOfUse,
-      overallImpression
+      overallImpression,
+      respondByEmail
     };
 
     try {

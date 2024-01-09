@@ -24,8 +24,8 @@ export const authOptions:any = {
                 await connect();
 
                 try {
+                    const isUserVerified = await User.findOne({email: credentials.email}, {isVerified: true});
                     const user = await User.findOne({email: credentials.email});
-
                     if (user) {
                         // user exists and can log in using the credentials
                         // checking if password is validated in database
@@ -33,8 +33,7 @@ export const authOptions:any = {
                             credentials.password,
                             user.password
                         )
-                        if (isPasswordCorrect) {
-                            console.log(" debug new field name ", user.name);
+                        if (isPasswordCorrect)  {
                             return user;
                         }
                     }

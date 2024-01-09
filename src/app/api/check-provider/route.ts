@@ -4,7 +4,7 @@ import User from '@/models/User';
 import {NextResponse} from "next/server";
 import {authenticateUser, AuthResult} from "@/utils/authentication";
 
-export async function POST(req: NextApiRequest) {
+export async function GET(req: NextApiRequest) {
     console.log("Inside Check Provider POST : Line 8")
     const {userEmail, session}: AuthResult = await authenticateUser(req);
     if (!userEmail || !session) {

@@ -41,7 +41,6 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       // checking if email was registered before and is present in MongoDB
       const emailFound = await User.findOne({email: email})
       if (!emailFound) {
-        console.log("Inside Email Check in MongoDB")
         return NextResponse.json({error: 'Email Not Registered'}, {status: 404});
       }
 

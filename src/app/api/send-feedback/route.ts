@@ -5,7 +5,7 @@ import {authenticateUser, AuthResult} from "@/utils/authentication";
 
 export const POST = async (request: any) => {
     console.log("at line 5 in POST");
-    const { name, email, category, message, availability, visualAppeal, easeOfUse, overallImpression } = await request.json();
+    const { name, email, category, message, availability, visualAppeal, easeOfUse, overallImpression, respondByEmail } = await request.json();
 console.log(" name ", name);
 console.log(" category ", category);
 
@@ -36,9 +36,19 @@ console.log(" category ", category);
         Email: ${email}\n
         Message: ${message}\n
         Availability: ${availability}\n
-        visualAppeal:  ${visualAppeal}\n
-        easeOfUse: ${easeOfUse}\n 
-        overallImpression: ${overallImpression}\n` // message body in administrator's email
+        Visual Appeal:  ${visualAppeal}\n
+        Ease of Use: ${easeOfUse}\n 
+        Overall Impression: ${overallImpression}\n
+        Response Required: ${respondByEmail}`,
+
+        html: `<p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+        <p><strong>Availability:</strong> ${availability}</p>
+        <p><strong>Visual Appeal:</strong> ${visualAppeal}</p>
+        <p><strong>Ease of Use:</strong> ${easeOfUse}</p>
+        <p><strong>Overall Impression:</strong> ${overallImpression}</p>
+        <p><strong>Response Required:</strong> ${respondByEmail}</p>`
     };
 
     // Sending email from

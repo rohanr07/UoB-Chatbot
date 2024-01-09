@@ -22,7 +22,6 @@ const Login = () => {
             router.replace("/");
         }
     }, [sessionStatus, router])
-
     const isValidEmail = (email: string) => {
         // validating the email address checking for presence of letters, numbers and "@"
         const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -37,25 +36,21 @@ const Login = () => {
             setError("Email is Invalid");
             return;
         }
-
         if(!password || password.length < 8) {
             setError("Password is Invalid");
             return;
         }
-
         const res = await signIn("credentials", {
             redirect: false,
             email,
             password
         })
-
         if (res?.error) {
             setError("Invalid email or password");
             if (res?.url) router.replace("/");
         } else {
             setError("");
         }
-
     };
 
     if (sessionStatus == 'loading') {
@@ -75,14 +70,12 @@ const Login = () => {
                         placeholder="Email"
                         required
                     />
-
                     <input
                         type="password"
                         className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
                         placeholder="Password"
                         required
                     />
-
                     <button
                         type="submit"
                         className={styles.button}
@@ -95,8 +88,8 @@ const Login = () => {
 
                 <a href="/api/auth/signin/github" className="github-signin">
                         <Image src={GitHubImage} alt="Sign in With GitHub button"
-                        width={200} // Adjust the width as necessary
-                        height={50} // Adjust the height as necessary
+                        width={200}
+                        height={50}
                     />
                 </a>
 
