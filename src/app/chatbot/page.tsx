@@ -8,6 +8,7 @@ import {useSession} from "next-auth/react";
 import { useSearchParams} from "next/navigation";
 import { questions } from "@/app/components/homePrompt"
 import styles from '@/app/Pages.module.css'
+import {useRouter} from "next/navigation";
 
     export default function Chatbot() {
 
@@ -26,6 +27,21 @@ import styles from '@/app/Pages.module.css'
         ]);
         const lastMessageRef = useRef<HTMLDivElement | null>(null);
         const [loading, setLoading] = useState<boolean>(false);
+        const router = useRouter();
+
+        useEffect(() => {
+            if (!session) {
+                // Redirect to login page if not signed in
+                console.log("User is not authenticated. Redirecting to login page.");
+                router.push("/login");
+                return;
+            } else {
+                console.log(" USER IS AUTHENTICATED ");
+            }
+        }, []);
+
+
+
 
         const handleClick = () => {
             // checking if user has typed a message in the prompt
@@ -115,6 +131,7 @@ import styles from '@/app/Pages.module.css'
                                             >
                                                 <img
                                                     src="/images/assistant.png"
+                                                    alt="Profile picture of the assistant"
                                                     className="h-12 w-12 rounded-full"
                                                 />
                                                 <div
@@ -167,7 +184,8 @@ import styles from '@/app/Pages.module.css'
                             {loading && (
                                 <div ref={lastMessageRef} className="flex gap-2">
                                     <img
-                                        src="/assistant.png"
+                                        src="/images/assistant.png"
+                                        alt="Profile picture of the assistant"
                                         className="h-12 w-12 rounded-full"
                                     />
                                     <div
