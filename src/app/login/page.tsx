@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { signIn , useSession } from "next-auth/react";
 import styles from "@/app/Pages.module.css";
 import GitHubImage from '/public/images/GitHubSignIn.png';
-import MyImage from "*.png";
 import Image from "next/image";
 
 const Login = () => {
@@ -14,7 +13,6 @@ const Login = () => {
     const [error, setError] = useState("");
 
     // provides status whether user is authenticated or not
-    //const session = useSession();
     const {data: session, status : sessionStatus} = useSession();
 
     useEffect(() => {

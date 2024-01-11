@@ -24,11 +24,16 @@ export const authOptions:any = {
                 await connect();
 
                 try {
-                    const isUserVerified = await User.findOne({email: credentials.email}, {isVerified: true});
                     const user = await User.findOne({email: credentials.email});
+
                     if (user) {
                         // user exists and can log in using the credentials
                         // checking if password is validated in database
+
+                        if (!user.isVerified) {
+                            throw new Error("Your account is not Verified");
+                        }
+
                         const isPasswordCorrect = await bcrypt.compare(
                             credentials.password,
                             user.password

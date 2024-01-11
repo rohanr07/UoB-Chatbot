@@ -47,11 +47,11 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       const user = await User.findOneAndUpdate(
         { email: email, verificationToken: token, isVerified: false },
         { $set: { isVerified: true, verificationToken: null } },
-        { new: true }
+        { new: false }
       );
-    console.log("email   :", email)
-    console.log("token   :", token)
-   console.log("find returns", user)
+      console.log("email   :", email)
+        console.log("token   :", token)
+        console.log("find returns", user)
       if (!user) {
         return NextResponse.json({error: 'Invalid or Expired Token'}, {status: 404});
       }
