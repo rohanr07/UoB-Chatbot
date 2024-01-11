@@ -1,12 +1,25 @@
  "use client";
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useRouter } from 'next/navigation';
+import {getSession, useSession} from "next-auth/react";
 
 const Change = () => {
+  const { data: session } : any = useSession();
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const router = useRouter();
+
+        useEffect(() => {
+            if (!session) {
+                // Redirect to login page if not signed in
+                console.log("User is not authenticated. Redirecting to login page.");
+                router.push("/login");
+                return;
+            } else {
+                console.log(" USER IS AUTHENTICATED ");
+            }
+        }, []);
 
   const isFormValid = () => {
     return (
