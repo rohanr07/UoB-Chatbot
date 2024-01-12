@@ -88,7 +88,7 @@ const Contact = () => {
           <title>Contact Us</title>
         </Head>
         <div className={styles.pageContainer}>
-          <h1>Contact</h1>
+          <h1 className={styles.pageTitle}> Contact</h1>
           <form onSubmit={handleSubmit}>
             <div className={styles.nameField}>
               Name: {session?.user?.name || ''}
@@ -97,7 +97,6 @@ const Contact = () => {
             </div>
             What type of feedback do you have?
             <select
-                //className={styles.nameField}
                 onChange={(e) => setCategory(e.target.value)}
                 defaultValue=""
                 required

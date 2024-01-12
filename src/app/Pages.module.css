@@ -47,16 +47,16 @@
 
 .pageBackground {
     height: 100vh;
-    background-color: #edf2f7;
+    background-color: black;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
 }
 
 .pageTitle {
-    font-family: Georgia, serif;
+    font-family: Avenir Next, serif;
     font-size: 37px;
-    color: black;
+    color: whitesmoke;
 }
 
 .nameField {

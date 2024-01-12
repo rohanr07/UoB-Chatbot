@@ -1,8 +1,9 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
 import React from "react";
+import styles from '@/app/Pages.module.css'
 
 // Defining interface for chat message
 interface Message1 {
@@ -23,7 +24,7 @@ export default function ConversationHistory(){
           if (!session) {
           // Redirect to login page if not signed in
           console.log("User is not authenticated. Redirecting to login page.");
-          await router.push("/login");
+          router.push("/login");
           return;
           }else {
               console.log( " USER IS AUTHENTICATED ");
@@ -45,15 +46,8 @@ export default function ConversationHistory(){
                         console.log(" resHistory1  ======", resHistory);
                         console.log(" resHistory2  ======", resHistory.chatHistory);
 
-                       // setChatHistories([resHistory]);
                         setChatHistories(resHistory.chatHistory);
                         console.log('Messages after setChatHistories:', chatHistories);
-
-                        // if (!resHistory || !resHistory.chatMessages || !Array.isArray(data.chatMessages)) {
-                        //    throw new Error("Invalid response format");
-                        // }c
-                        //setHistory((oldHistory) => [...oldHistory, r]);
-                        //setLoading(false);
                     })
                     .catch((err) => {
                         alert(err);
@@ -63,23 +57,17 @@ export default function ConversationHistory(){
 
             } catch (error) {
                 console.error("Error fetching chat history:", error);
-                throw error; // Rethrow the error for the calling function to handle
+                throw error;
             }
-        } //fetChatHistory
-        // Call the function to fetch chat history
+        }
         fetchChatHistory();
     }, []);
-    // Obtained History from MongoDB
 
-
-    // debug line: printing chat histories
     console.log('Chat Histories:', chatHistories);
 
-    // makes an API call to clear chat history from front UI and MongoDB
     const handleClearHistory = async () => {
         console.log("Inside handleClearHistory() : Line 81")
 
-    // Makes an API call to clear the MongoDB chat history records
     try {
         const response = await fetch('/api/clear-history', { method: 'POST' });
         if (response.ok) {
@@ -97,25 +85,11 @@ export default function ConversationHistory(){
      <main className="h-screen bg-black-400 p-6 flex flex-col">
 
          <div style={{ position: 'relative', height: '100%' }}>
-             {/* ... your existing UI components ... */}
-             <button
-                 style={{
-                     position: 'absolute',
-                     top: 0,
-                     right: 0,
-                     margin: '10px',
-                     // Add more styling as needed
-                     }}
+             <button className={styles.button}
                      onClick={handleClearHistory}
     >
         Clear History
     </button>
-             {/*</div>*/}
-
-
-
-
-         {/* <div className="mt-4 flex flex-col gap-2"> */}
        <h1> Chat History </h1>
 
            <ul>
@@ -135,8 +109,6 @@ export default function ConversationHistory(){
   </li>
 ))}
       </ul>
-
-
       </div>
     </main>
      );

@@ -2,9 +2,9 @@ import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import './globals.css'
 import Navbar from "@/app/components/Navbar";
-
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/utils/SessionProvider";
+import {redirect} from "next/navigation";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -19,6 +19,8 @@ export default async function RootLayout({
     children: React.ReactNode
 }) {
     const session = await getServerSession();
+
+
     return (
         <html lang="en">
         <body className={inter.className}>

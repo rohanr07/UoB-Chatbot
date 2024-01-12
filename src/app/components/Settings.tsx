@@ -71,7 +71,7 @@ const SettingsDropdown = () => {
              {menuItems.map((item, index) => (
                  item.route !== '/api/auth/signout' ? (
               <li className={styles["dropdown-list-item"]} key={index}>
-                <Link className={styles["dropdown-list-item"]} href={item.route}>
+                <Link href={item.route}>
                   {item.name}
                 </Link>
               </li>
