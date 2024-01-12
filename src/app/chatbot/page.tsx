@@ -102,7 +102,7 @@ import {useRouter} from "next/navigation";
         return (
             //<main className="h-screen bg-gray-200 p-6 flex flex-col">
             <main className={styles.pageBackground}>
-                <div className="flex flex-col gap-8 w-full items-center flex-grow max-h-full">
+                <div className={styles.chatbotContainer}>
 
                     <h1 className={styles.pageTitle}>
                         University of Birmingham Chatbot

@@ -90,13 +90,13 @@ export default function ConversationHistory(){
     >
         Clear History
     </button>
-       <h1> Chat History </h1>
+       <h1 className={styles.pageTitle}> Chat History </h1>
 
            <ul>
         {chatHistories.map((chatHistory, index) => (
 
   <li key={index}>
-       <p className="text-sm font-medium text-slate-500">
+       <p className={styles.historyContainer}>
            Question: {chatHistory.question} <br/>
            Answer: {chatHistory.answer} <br/>
            <span style={{ textAlign: 'right', display: 'block' }}>
@@ -104,7 +104,9 @@ export default function ConversationHistory(){
            </span>
         </p>
 
-     ------------------------------------------------------------------------------------------------------------------------------------------------------------
+     <p className={styles.lineSeparator}>
+         ------------------------------------------------------------------------------------------------------------------------------------------------------------
+     </p>
 
   </li>
 ))}

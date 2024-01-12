@@ -57,6 +57,7 @@
     font-family: Avenir Next, serif;
     font-size: 37px;
     color: whitesmoke;
+    text-align: center;
 }
 
 .nameField {
@@ -146,5 +147,26 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+}
+
+.chatbotContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  align-items: center;
+  flex-grow: 1;
+  max-height: 100%;
+}
+
+.historyContainer {
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+}
+
+.lineSeparator {
+    color: slategrey;
+
 }
 
