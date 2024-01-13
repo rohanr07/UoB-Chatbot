@@ -60,17 +60,17 @@ const Login = () => {
         sessionStatus != "authenticated" && (
         <div className={styles.pageContainer}>
             <div className="bg-[#212121 p-8rounded shadow-md w-96">
-                <h1 className="text-4xl text-center font-semibold mb-8">Login</h1>
+                <h1 className={styles.pageTitle}>Login</h1>
                 <form onSubmit={handleSubmit}>
                     <input
+                        className={styles.inputStyle}
                         type="text"
-                        className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
                         placeholder="Email"
                         required
                     />
                     <input
+                        className={styles.inputStyle}
                         type="password"
-                        className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
                         placeholder="Password"
                         required
                     />

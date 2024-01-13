@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import { useRouter } from 'next/navigation';
 import {getSession, useSession} from "next-auth/react";
+import styles from '@/app/Pages.module.css'
 
 const Change = () => {
   const { data: session } : any = useSession();
@@ -49,57 +50,45 @@ const Change = () => {
       router.back();
     } else {
       console.error('Failed to Update Credentials', data.message);
-      // You could set an error state here and display it to the user
     }
   } catch (error) {
     console.error('Error updating credentials:', error);
-    // Handle error
   }
   };
 
   return (
-    <div className="flex flex-col w-full">
-      <h1 className="text-4xl text-center font-semibold mt-6 mb-4">Change Name / Password</h1>
-      <div className="flex flex-col items-center justify-center flex-grow p-6">
-        <div className="bg-[#212121] p-8 rounded shadow-md w-full max-w-md">
+    <div className={styles.pageContainer}>
+      <h1 className={styles.pageTitle}>Change Password</h1>
+        <div className="bg-[#212121] p-7 rounded shadow-md w-full max-w-md">
           <input
-            className="mb-4 p-2 text-black"
+            className={styles.inputStyle}
             type="password"
             placeholder="Enter current password"
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
           />
           <input
-            className="mb-4 p-2 text-black"
+            className={styles.inputStyle}
             type="password"
             placeholder="Enter new password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />
           <input
-            className="mb-4 p-2 text-black"
+            className={styles.inputStyle}
             type="password"
             placeholder="Confirm new password"
             value={confirmNewPassword}
             onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
-          <div className="flex justify-between">
-            <button onClick={handleCancel} style={{ backgroundColor: 'red' }}>
+            <button className={styles.buttonCancel} onClick={handleCancel}>
               Cancel
             </button>
-            <button
-              onClick={handleConfirm}
-              style={{
-                backgroundColor: isFormValid() ? 'green' : 'grey',
-              }}
-              disabled={!isFormValid()}
-            >
+            <button className={styles.button} onClick={handleConfirm} disabled={!isFormValid()}>
               Confirm
             </button>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 

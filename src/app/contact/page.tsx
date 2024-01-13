@@ -109,7 +109,6 @@ const Contact = () => {
               <option value="chatbot-not-functioning">Chatbot Not Functioning Properly</option>
               <option value="providing-wrong-info">Providing Wrong Information</option>
               <option value="other">Other</option>
-              {/* ... other options ... */}
             </select>
             <div>
               Comments on the chatbot:

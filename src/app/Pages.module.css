@@ -23,10 +23,6 @@
     outline: none;
 }
 
-.pageContainer h1 {
-    margin-bottom: 2rem;
-}
-
 .pageContainer form {
     width: 100%;
 }
@@ -58,6 +54,7 @@
     font-size: 37px;
     color: whitesmoke;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .nameField {
@@ -90,6 +87,21 @@
     border-radius: 8px;
 }
 
+.buttonCancel {
+    background-color: red;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
 .button:hover {
     background-color: #FFCA28;
 }
@@ -113,12 +125,10 @@
 
 .radioGroup label {
     margin-right: 20px;
-}
-
-.radioGroup label {
     display: flex;
     align-items: center;
 }
+
 
 .dropdown {
     position: relative;
@@ -168,3 +178,61 @@
 .miscellaneous {
     color: slategrey;
 }
+
+.containerStyle {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: calc(100vh - 200px);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.columnStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 50%;
+  align-items: center;
+}
+
+.boxStyle {
+  border: 2px solid #555;
+  padding: 10px;
+  margin: 7px 0;
+  border-radius: 25px;
+  background-color: #ccc;
+  box-shadow: 5px 5px 7px #888;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.inputStyle {
+  width: 100%;
+  border: 1px solid #ccc;
+  color: black;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.inputStyle:focus {
+  border: 1px solid yellow;
+  color: black;
+}
+
+/* YourStylesheet.css */
+
+.bgDarkGray {
+  background-color: #212121;
+}
+
+.temp {
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 12rem; /* Adjust the width as needed */
+}
+
+
