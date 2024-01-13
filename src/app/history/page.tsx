@@ -80,7 +80,6 @@ export default function ConversationHistory(){
         console.error('Error:', error);
     }
     };
-
   return (
      <main className="h-screen bg-black-400 p-6 flex flex-col">
 

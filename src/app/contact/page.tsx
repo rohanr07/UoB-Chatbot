@@ -1,10 +1,10 @@
 "use client";
 import React, {useEffect, useState} from 'react';
 import Head from 'next/head';
-import styles from '@/app/Pages.module.css'
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import styles from '@/app/Pages.module.css'
 
 const Contact = () => {
   const router = useRouter();

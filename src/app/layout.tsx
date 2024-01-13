@@ -4,7 +4,7 @@ import './globals.css'
 import Navbar from "@/app/components/Navbar";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/utils/SessionProvider";
-import {redirect} from "next/navigation";
+import styles from '@/app/Pages.module.css'
 
 const inter = Inter({subsets: ['latin']})
 
@@ -19,8 +19,6 @@ export default async function RootLayout({
     children: React.ReactNode
 }) {
     const session = await getServerSession();
-
-
     return (
         <html lang="en">
         <body className={inter.className}>
@@ -30,7 +28,7 @@ export default async function RootLayout({
                 {children}
             </div>
             <footer className="text-center py-4 bg-black-50 fixed bottom-0 right-0 left-0">
-                <p>© {new Date().getFullYear()} Developed by Rohan Renganathan</p>
+                <p className={styles.miscellaneous}>© {new Date().getFullYear()} Developed by Rohan Renganathan</p>
             </footer>
         </SessionProvider>
         </body>
