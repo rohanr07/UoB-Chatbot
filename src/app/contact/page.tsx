@@ -102,7 +102,7 @@ const Contact = () => {
                 required
             >
               <option className={styles.pageContainer} value="" disabled>
-                HOW CAN WE HELP YOU?
+                How Can We Help You?
               </option>
 
               <option value="can-not-register-login">Can't Register / Login</option>
