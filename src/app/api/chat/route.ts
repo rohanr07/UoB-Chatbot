@@ -1,17 +1,11 @@
 import { NextResponse } from 'next/server';
-import {chain} from "@/utils/chain";
 import {Message} from "@/types/message";
-
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest } from 'next';
 import { authenticateUser, AuthResult } from '@/utils/authentication';
-
-import connect from "@/utils/mongodb";
 import ChatMessage from "@/models/ChatMessage";
-import user from "@/models/User";
+import bcrypt from "bcryptjs";
 
-
-
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextApiRequest) {
     const {userEmail, session}: AuthResult = await authenticateUser(req);
     if (!userEmail || !session) {
         return NextResponse.json({error: 'User not authenticated'}, {status: 401});
@@ -55,13 +49,13 @@ export async function POST(req: NextApiRequest) {
     } else {
         return NextResponse.json({error: 'Method not allowed'}, {status: 405});
     }
-};
+}
 
 async function handleGet(userEmail: string) {
-
             try {
                 const chatHistory = await ChatMessage.find({email: userEmail}).sort({timestamp: -1});
                 console.log("PRINT chatHistory", chatHistory);
+
                 return NextResponse.json({chatHistory});
             } catch (error) {
                 console.error("Error fetching chat messages:", error);
@@ -90,17 +84,17 @@ async function handlePost(userEmail: string, question :string, history: Message[
     // Use the hardcoded result instead of making an API call to save $$
     const res = await Promise.resolve(hardcodedResult);
 
+    //const hashedQuestion = await bcrypt.hash(question, 5);
+    //const hashedResult = await bcrypt.hash(res.text, 5);
 
     // Populate the conversation into MongoDB
     await ChatMessage.create({
     email: userEmail,
-    question: question,
-    answer: res.text
+    question: question, //hashedQuestion,
+    answer: res.text //hashedResult
   });
-
     const links: string[] = Array.from(new Set(res.sourceDocuments.map((document: {metadata: {source: string}}) => document.metadata.source)))
     return NextResponse.json({role: "assistant", content: res.text, links: links})
-
 }
 
 

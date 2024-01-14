@@ -20,11 +20,6 @@ export async function POST(req: NextApiRequest) {
         console.error('Error clearing history:', error);
         return NextResponse.json({error: "Internal Server Error"}, {status: 500});
     }
-
-
-
-
-
 }
 
 

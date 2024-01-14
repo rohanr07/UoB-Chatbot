@@ -11,6 +11,7 @@
   "dependencies": {
     "@pinecone-database/pinecone": "^0.1.6",
     "bcryptjs": "^2.4.3",
+    "crypto-js": "^4.2.0",
     "dotenv": "^16.3.1",
     "langchain": "^0.0.127",
     "mongoose": "^8.0.1",
