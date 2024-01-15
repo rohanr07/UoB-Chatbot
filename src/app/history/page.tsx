@@ -102,7 +102,7 @@ export default function ConversationHistory(){
            </span>
         </p>
 
-     <p className={styles.lineSeparator}>
+     <p className={styles.miscellaneous}>
          ------------------------------------------------------------------------------------------------------------------------------------------------------------
      </p>
 

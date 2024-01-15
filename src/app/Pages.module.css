@@ -181,21 +181,29 @@
 
 .containerStyle {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  height: calc(100vh - 200px);
+  flex-direction: column; /* Change from row to column */
+  align-items: center; /* Align items in the center horizontally */
+  justify-content: flex-end; /* Align container content to the end (bottom) */
+  height: 100vh; /* Full height of the viewport */
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 .columnStyle {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 50%;
-  align-items: center;
+  width: 100%; /* Take full width */
+  align-items: center; /* Align items in the center horizontally */
+  margin-bottom: 20px; /* Add some space above the buttons */
 }
+
+/* Add this new class for the logos container */
+.logosContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%; /* Take full width */
+  margin-bottom: 10px; /* Adjust this value to reduce space between logos and buttons */
+}
+
 
 .boxStyle {
   border: 2px solid #555;
@@ -228,11 +236,15 @@
   background-color: #212121;
 }
 
-.temp {
-  padding: 8px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 12rem; /* Adjust the width as needed */
+.socialMediaContainer {
+margin-bottom: 0; /*Remove bottom margin to reduce space */
+}
+
+.socialMediaLogo {
+    height: 50px; /* Adjust as needed */
+    width: auto;
+    cursor: pointer;
+    /* Add any additional styling such as margins, borders, etc. */
 }
 
 
