@@ -43,10 +43,9 @@ export default function ConversationHistory(){
 
                         //
                         const resHistory  = await res.json();
-                        console.log(" resHistory1  ======", resHistory);
-                        console.log(" resHistory2  ======", resHistory.chatHistory);
+                        console.log(" resHistory2  ======", resHistory.decryptedChatHistory);
 
-                        setChatHistories(resHistory.chatHistory);
+                        setChatHistories(resHistory.decryptedChatHistory);
                         console.log('Messages after setChatHistories:', chatHistories);
                     })
                     .catch((err) => {
