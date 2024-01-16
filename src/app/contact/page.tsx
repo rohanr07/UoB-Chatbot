@@ -191,27 +191,31 @@ const Contact = () => {
             </div>
             <div>
               Would you like us to respond to your comments by sending you an email?
-              <div>
-                <input
-                    type="radio"
-                    id="respondYes"
-                    name="respondByEmail"
-                    value="Yes"
-                    onChange={() => setRespondByEmail('Yes')}
-                    checked={respondByEmail === 'Yes'}
-                    required
-                />
-                <label htmlFor="respondYes">Yes</label>
-                <input
-                    type="radio"
-                    id="respondNo"
-                    name="respondByEmail"
-                    value="No"
-                    onChange={() => setRespondByEmail('No')}
-                    checked={respondByEmail === 'No'}
-                    required
-                />
-                <label htmlFor="respondNo">No</label>
+              <div style={{display: 'flex', alignItems: 'center'}}>
+                <div style={{marginRight: '100px'}}>
+                  <input
+                      type="radio"
+                      id="respondYes"
+                      name="respondByEmail"
+                      value="Yes"
+                      onChange={() => setRespondByEmail('Yes')}
+                      checked={respondByEmail === 'Yes'}
+                      required
+                  />
+                  <label htmlFor="respondYes">Yes</label>
+                </div>
+                <div>
+                  <input
+                      type="radio"
+                      id="respondNo"
+                      name="respondByEmail"
+                      value="No"
+                      onChange={() => setRespondByEmail('No')}
+                      checked={respondByEmail === 'No'}
+                      required
+                  />
+                  <label htmlFor="respondNo">No</label>
+                </div>
               </div>
             </div>
             <div>
