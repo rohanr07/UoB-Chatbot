@@ -8,10 +8,6 @@ This chatbot is targeted to individuals who are currently studying at the Unives
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`NEXTAUTH_SECRET = "cOmPlExStUfF"`
-
-_This is required for encrypting the authentication process_
-
 `GITHUB_ID`
 `GITHUB_SECRET`
 

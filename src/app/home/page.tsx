@@ -5,10 +5,12 @@ import HomePageButtons from "@/app/components/homePageButtons";
 import {questions} from "@/app/components/homePrompt"
 import styles from '@/app/Pages.module.css'
 import Image from 'next/image';
+//import Image from 'next/future/image';
 import InstagramLogo from '/public/images/Instagram.png';
 import FacebookLogo from '/public/images/Facebook.png';
 import LinkedInLogo from '/public/images/Linkedin.png';
 import YouTubeLogo from '/public/images/YouTube.png';
+import CampusImage from '/public/images/Campus.png';
 
 const Homepage = async () => {
 
@@ -30,6 +32,17 @@ const Homepage = async () => {
 
     return (
         <div className={styles.pageBackground}>
+
+            <Image
+                src={CampusImage}
+                alt="Campus Image"
+                className={styles.campusImage}
+                layout="responsive"
+                objectFit="contain"
+                objectPosition="top"
+            />
+
+
             <div className={styles.socialMediaContainer}>
                 <a href="https://www.instagram.com/unibirmingham/" target="_blank" rel="noopener noreferrer">
                     <Image src={InstagramLogo} alt="Instagram" className={styles.socialMediaLogo}/>
