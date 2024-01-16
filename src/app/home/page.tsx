@@ -29,23 +29,23 @@ const Homepage = async () => {
     const shuffledQuestions = shuffleArray(questions.slice());
 
     return (
-        <div>
-            <div className={styles.containerStyle}>
-                <div className={styles.logosContainer}>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <Image src={InstagramLogo} alt="Instagram" className={styles.socialMediaLogo}/>
-                    </a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <Image src={FacebookLogo} alt="Facebook" className={styles.socialMediaLogo}/>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                        <Image src={LinkedInLogo} alt="LinkedIn" className={styles.socialMediaLogo}/>
-                    </a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                        <Image src={YouTubeLogo} alt="YouTube" className={styles.socialMediaLogo}/>
-                    </a>
-                </div>
+        <div className={styles.pageBackground}>
+            <div className={styles.socialMediaContainer}>
+                <a href="https://www.instagram.com/unibirmingham/" target="_blank" rel="noopener noreferrer">
+                    <Image src={InstagramLogo} alt="Instagram" className={styles.socialMediaLogo}/>
+                </a>
+                <a href="https://www.facebook.com/unibirmingham/" target="_blank" rel="noopener noreferrer">
+                    <Image src={FacebookLogo} alt="Facebook" className={styles.socialMediaLogo}/>
+                </a>
+                <a href="https://www.linkedin.com/school/university-of-birmingham/" target="_blank" rel="noopener noreferrer">
+                    <Image src={LinkedInLogo} alt="LinkedIn" className={styles.socialMediaLogo}/>
+                </a>
+                <a href="https://www.youtube.com/user/unibirmingham" target="_blank" rel="noopener noreferrer">
+                    <Image src={YouTubeLogo} alt="YouTube" className={styles.socialMediaLogo}/>
+                </a>
+            </div>
 
+            <div className={styles.logosContainer}>
                 <div className={styles.columnStyle}>
                     <div className={styles.boxStyle}>
                         <HomePageButtons
