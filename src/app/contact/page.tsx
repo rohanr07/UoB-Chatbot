@@ -84,9 +84,6 @@ const Contact = () => {
 
   return (
       <>
-        <Head>
-          <title>Contact Us</title>
-        </Head>
         <div className={styles.pageContainer}>
           <h1 className={styles.pageTitle}> Contact</h1>
           <form onSubmit={handleSubmit}>

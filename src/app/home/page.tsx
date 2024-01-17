@@ -32,14 +32,17 @@ const Homepage = async () => {
 
     return (
         <div className={styles.pageBackground}>
+            <h1 className={styles.pageTitle}>
+                Welcome to the University of Birmingham Chatbot
+            </h1>
 
             <Image
                 src={CampusImage}
                 alt="Campus Image"
                 className={styles.campusImage}
-                layout="responsive"
-                objectFit="contain"
-                objectPosition="top"
+                //layout="responsive"
+                //objectFit="contain"
+                //objectPosition="top"
             />
 
 
@@ -50,7 +53,8 @@ const Homepage = async () => {
                 <a href="https://www.facebook.com/unibirmingham/" target="_blank" rel="noopener noreferrer">
                     <Image src={FacebookLogo} alt="Facebook" className={styles.socialMediaLogo}/>
                 </a>
-                <a href="https://www.linkedin.com/school/university-of-birmingham/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/school/university-of-birmingham/" target="_blank"
+                   rel="noopener noreferrer">
                     <Image src={LinkedInLogo} alt="LinkedIn" className={styles.socialMediaLogo}/>
                 </a>
                 <a href="https://www.youtube.com/user/unibirmingham" target="_blank" rel="noopener noreferrer">

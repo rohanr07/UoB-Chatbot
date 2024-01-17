@@ -1,10 +1,10 @@
 /* Used on Help Screen, Register Screen, Login Screen  */
 .pageContainer {
-    max-width: 100px;
+    max-width: 1500px;
     display: flex;
     padding: 2rem;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background: #222;
     color: #fff;
@@ -43,9 +43,9 @@
 
 .pageBackground {
     /*height: 100vh;*/
-    height: calc(100vh - 70px);
+    height: calc(100vh - 80px);
     background-color: black;
-    padding-top: 100px;
+    padding-top: 10px;
     /*padding: 1.5rem;*/
     display: flex;
     flex-direction: column;
@@ -185,10 +185,10 @@
 
 .containerStyle {
     display: flex;
-    flex-direction: column; /* Change from row to column */
-    justify-content: flex-end; /* Align container content to the end (bottom) */
-    align-items: center; /* Align items in the center horizontally */
-    height: 100vh; /* Full height of the viewport */
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -197,17 +197,15 @@
 .columnStyle {
     display: flex;
     flex-direction: column;
-    width: 50%; /* Take full width */
-    align-items: center; /* Align items in the center horizontally */
-    /*margin-bottom: 20px;*/ /* Add some space above the buttons */
+    width: 50%;
+    align-items: center;
 }
 
-/* Add this new class for the logos container */
 .logosContainer {
   display: flex;
   justify-content: space-around;
-  width: 100%; /* Take full width */
-  margin-bottom: 10px; /* Adjust this value to reduce space between logos and buttons */
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .boxStyle {
@@ -242,15 +240,14 @@
 .socialMediaContainer {
     display: flex;
     justify-content: space-around;
-    width: 100%; /* Spread out the logos across the full width */
-    margin-bottom: 20px; /* Space between logos and question buttons */
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .socialMediaLogo {
-    height: 70px; /* Adjust as needed */
+    height: 70px;
     width: auto;
     cursor: pointer;
-    /* Add any additional styling such as margins, borders, etc. */
 }
 
 .campusImage {
@@ -258,7 +255,7 @@
     /*max-height: 500px;*/
     max-height: 50vh;
     object-fit: contain;
-    margin-top: -50px;
+    margin-bottom: 100px;
     object-position: bottom;
     width: auto;
     height: auto;
@@ -266,8 +263,14 @@
 
 .questionsContainer {
     display: flex;
-    justify-content: space-between; /* Spread the columns out */
-    width: 100%; /* Match the width of the social media container */
+    justify-content: space-between;
+    width: 100%;
 }
 
-
+.headerContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}

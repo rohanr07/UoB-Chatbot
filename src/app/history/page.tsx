@@ -80,38 +80,37 @@ export default function ConversationHistory() {
         }
     };
     return (
-        <main className="h-screen bg-black-400 p-6 flex flex-col">
-
-            <div style={{position: 'relative', height: '100%'}}>
-                <button className={styles.button}
-                        onClick={handleClearHistory}
-                >
+        <div className={styles.pageContainer}>
+            <div className={styles.headerContainer}>
+                <h1 className={styles.pageTitle}> Chat History </h1>
+                <button className={styles.button} onClick={handleClearHistory}>
                     Clear History
                 </button>
-                <h1 className={styles.pageTitle}> Chat History </h1>
-
-                <ul>
-                    {chatHistories.map((chatHistory, index) => (
-
-                        <li key={index}>
-                            <p className={styles.historyContainer}>
-                                Question: {chatHistory.question} <br/>
-                                Answer: {chatHistory.answer} <br/>
-                                <span style={{textAlign: 'right', display: 'block'}}>
-           Timestamp: {chatHistory.timestamp}<br/>
-           </span>
-                            </p>
-
-                            <p className={styles.miscellaneous}>
-                                ------------------------------------------------------------------------------------------------------------------------------------------------------------
-                            </p>
-
-                        </li>
-                    ))}
-                </ul>
             </div>
-        </main>
-    );
+
+
+            <ul>
+                {chatHistories.map((chatHistory, index) => (
+
+                    <li key={index}>
+                        <p className={styles.historyContainer}>
+                            Question: {chatHistory.question} <br/>
+                            Answer: {chatHistory.answer} <br/>
+                            <span style={{textAlign: 'right', display: 'block'}}>
+                                Timestamp: {chatHistory.timestamp}<br/>
+                            </span>
+                        </p>
+
+                        <p className={styles.miscellaneous}>
+                            ------------------------------------------------------------------------------------------------------------------------------------------------------------
+                        </p>
+
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
+        ;
 };
 
 
