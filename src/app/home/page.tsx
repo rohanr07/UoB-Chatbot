@@ -10,6 +10,7 @@ import InstagramLogo from '/public/images/Instagram.png';
 import FacebookLogo from '/public/images/Facebook.png';
 import LinkedInLogo from '/public/images/Linkedin.png';
 import YouTubeLogo from '/public/images/YouTube.png';
+import X from '/public/images/X.png';
 import CampusImage from '/public/images/Campus.png';
 
 const Homepage = async () => {
@@ -36,13 +37,23 @@ const Homepage = async () => {
                 Welcome to the University of Birmingham Chatbot
             </h1>
 
+            <div className={styles.topRightTextbox}>
+                {/*UoB Academic Inquiry Hub<br/>*/}
+                <div className={styles.homePageMiniTitle}> About</div>
+                • Quick virtual aid for UoB inquiries<br/>
+                • Instant responses to student and staff questions<br/>
+                • Direct access to UoB resources, events & contacts<br/>
+                • Seamless design ensuring 24/7 information access<br/>
+
+            </div>
+
             <Image
                 src={CampusImage}
                 alt="Campus Image"
                 className={styles.campusImage}
-                //layout="responsive"
-                //objectFit="contain"
-                //objectPosition="top"
+                /*layout="responsive"
+                objectFit="contain"
+                objectPosition="top"*/
             />
 
 
@@ -59,6 +70,9 @@ const Homepage = async () => {
                 </a>
                 <a href="https://www.youtube.com/user/unibirmingham" target="_blank" rel="noopener noreferrer">
                     <Image src={YouTubeLogo} alt="YouTube" className={styles.socialMediaLogo}/>
+                </a>
+                <a href="https://twitter.com/unibirmingham" target="_blank" rel="noopener noreferrer">
+                    <Image src={X} alt="Twitter" className={styles.socialMediaLogo}/>
                 </a>
             </div>
 

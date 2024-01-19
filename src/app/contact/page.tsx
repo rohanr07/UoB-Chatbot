@@ -1,6 +1,6 @@
 "use client";
 import React, {useEffect, useState} from 'react';
-import Head from 'next/head';
+//import Head from 'next/head';
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -30,7 +30,6 @@ const Contact = () => {
         console.log("USER IS AUTHENTICATED");
       }
     };
-
     checkSession();
   }, []);
 
@@ -58,7 +57,7 @@ const Contact = () => {
         body: JSON.stringify(feedbackData),
       });
 
-      const data = await response.json();
+      //const data = await response.json();
 
       if (response.ok) {
         setContactEmailStatus('Feedback Sent Successfully!');

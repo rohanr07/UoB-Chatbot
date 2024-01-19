@@ -127,7 +127,7 @@ const Register = () => {
                             <p className="text-sm font-medium text-red-700">
                                 <b>Password must contain...</b>
                                 <ul>
-                                    <li>• At least 7 characters long</li>
+                                    <li>• At least 7 characters</li>
                                     <li>• An uppercase character</li>
                                     <li>• A lowercase character</li>
                                     <li>• A number</li>
