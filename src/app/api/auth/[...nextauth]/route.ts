@@ -2,14 +2,19 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import { Account, User as AuthUser } from "next-auth";
+import {Account, User as AuthUser} from "next-auth";
 import bcrypt from "bcryptjs";
-// required to create a new User who log in with GitHub
 import User from "@/models/User";
-// validating if log-in credentials are registered in the database
 import connect from "@/utils/mongodb"
 
-export const authOptions:any = {
+interface SignInCallbackParams {
+    user: AuthUser;
+    account: Account;
+    email: string | undefined;
+    credentials: { email?: string; password?: string } | undefined;
+}
+
+export const authOptions: any = {
     // Configure one or more authentication providers
     providers: [
         CredentialsProvider({
@@ -38,7 +43,7 @@ export const authOptions:any = {
                             credentials.password,
                             user.password
                         )
-                        if (isPasswordCorrect)  {
+                        if (isPasswordCorrect) {
                             return user;
                         }
                     }
@@ -54,9 +59,21 @@ export const authOptions:any = {
         // ...add more providers here
     ],
     callbacks: {
-        async signIn({user, account}: { user: AuthUser, account: Account }) {
+        async signIn({user, account, email, credentials}: SignInCallbackParams) {
+            ////async signIn({user, account}: { user: AuthUser, account: Account }) {
             try {
                 if (account?.provider == "credentials") {
+                    const userEmail = credentials?.email ?? '';
+                    const user = await User.findOne({email: userEmail});
+
+                    if (!user) {
+                        throw new Error('No user found');
+                    }
+                    if (!user || !user.isVerified) {
+                        //return `/auth/error?error=AccountNotVerified`;
+                        throw new Error("Your account is not Verified");
+                    }
+
                     return true;
                 }
                 if (account?.provider == "github") { // || account?.provider === "google") {
@@ -86,7 +103,7 @@ export const authOptions:any = {
 
 //export default NextAuth(authOptions)
 export const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST };
+export {handler as GET, handler as POST};
 
 
 
