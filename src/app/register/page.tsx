@@ -90,7 +90,7 @@ const Register = () => {
     return (
         sessionStatus != "authenticated" && (
             <div className={styles.pageContainer}>
-                <div className="bg-[#212121 p-8rounded shadow-md w-96">
+                <div className={styles.credentialFields}>
                     <h1 className={styles.pageTitle}>Register</h1>
                     <form onSubmit={handleSubmit}>
                         <input

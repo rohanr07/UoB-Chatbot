@@ -60,7 +60,7 @@ export const authOptions: any = {
     ],
     callbacks: {
         async signIn({user, account, email, credentials}: SignInCallbackParams) {
-            ////async signIn({user, account}: { user: AuthUser, account: Account }) {
+            //async signIn({user, account}: { user: AuthUser, account: Account }) {
             try {
                 if (account?.provider == "credentials") {
                     const userEmail = credentials?.email ?? '';

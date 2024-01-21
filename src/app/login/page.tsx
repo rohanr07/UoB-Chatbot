@@ -64,17 +64,17 @@ const Login = () => {
     return (
         sessionStatus != "authenticated" && (
             <div className={styles.pageContainer}>
-                <div className="bg-[#212121 p-8rounded shadow-md w-96">
+                <div className={styles.credentialFields}>
                     <h1 className={styles.pageTitle}>Login</h1>
                     <form onSubmit={handleSubmit}>
                         <input
-                            className={styles.inputStyle}
+                            className={styles.credentialsPage}
                             type="text"
                             placeholder="Email"
                             required
                         />
                         <input
-                            className={styles.inputStyle}
+                            className={styles.credentialsPage}
                             type="password"
                             placeholder="Password"
                             required

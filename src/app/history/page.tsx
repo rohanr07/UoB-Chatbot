@@ -4,6 +4,8 @@ import {useRouter} from "next/navigation";
 import {getSession} from "next-auth/react";
 import React from "react";
 import styles from '@/app/Pages.module.css'
+import searchIcon from '/public/images/searchIcon1.png';
+import Image from "next/image";
 
 // Defining interface for chat message
 interface Message1 {
@@ -16,6 +18,9 @@ interface Message1 {
 export default function ConversationHistory() {
     const router = useRouter();
     const [chatHistories, setChatHistories] = useState<Message1[]>([]);
+
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filteredHistories, setFilteredHistories] = useState<Message1[]>([]);
 
     useEffect(() => {
         const fetchChatHistory = async () => {
@@ -47,6 +52,7 @@ export default function ConversationHistory() {
 
                         setChatHistories(resHistory.decryptedChatHistory);
                         console.log('Messages after setChatHistories:', chatHistories);
+                        setFilteredHistories(resHistory.decryptedChatHistory);
                     })
                     .catch((err) => {
                         alert(err);
@@ -79,10 +85,44 @@ export default function ConversationHistory() {
             console.error('Error:', error);
         }
     };
+    const handleSearchHistory = () => {
+        if (!searchQuery) {
+            // If the search query is empty, show all chatHistories
+            setFilteredHistories(chatHistories);
+        } else {
+            // If there is a search query, filter chatHistories
+            const filtered = chatHistories.filter(history =>
+                history.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                history.answer.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+            setFilteredHistories(filtered);
+        }
+    };
+
     return (
         <div className={styles.pageContainer}>
+            <h1 className={styles.pageTitle}> Chat History </h1>
             <div className={styles.headerContainer}>
-                <h1 className={styles.pageTitle}> Chat History </h1>
+                <input
+                    style={{
+                        width: '80%',
+                        border: '1px solid whitesmoke',
+                        color: 'black',
+                        borderRadius: '0.75rem',
+                        padding: '0.5rem 0.75rem',
+                        marginBottom: '1rem'
+                    }}
+                    type="text"
+                    placeholder="Search history..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <img
+                    src={searchIcon.src}
+                    alt="Search History"
+                    className={styles.searchIcon}
+                    onClick={handleSearchHistory}
+                />
                 <button className={styles.button} onClick={handleClearHistory}>
                     Clear History
                 </button>
@@ -90,7 +130,7 @@ export default function ConversationHistory() {
 
 
             <ul>
-                {chatHistories.map((chatHistory, index) => (
+                {filteredHistories.map((chatHistory, index) => (
 
                     <li key={index}>
                         <p className={styles.historyContainer}>
@@ -102,7 +142,7 @@ export default function ConversationHistory() {
                         </p>
 
                         <p className={styles.miscellaneous}>
-                            ------------------------------------------------------------------------------------------------------------------------------------------------------------
+                            -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                         </p>
 
                     </li>

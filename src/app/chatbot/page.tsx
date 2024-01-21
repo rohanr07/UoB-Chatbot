@@ -153,6 +153,8 @@ import {useRouter} from "next/navigation";
                                                                     <a
                                                                         href={link}
                                                                         key={link}
+                                                                        target="blank_"
+                                                                        rel="noopener noreferrer"
                                                                         className="block w-fit px-2 py-1 text-sm  text-violet-700 bg-violet-100 rounded"
                                                                     >
                                                                         {formatPageName(link)}

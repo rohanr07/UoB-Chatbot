@@ -13,6 +13,7 @@ import YouTubeLogo from '/public/images/YouTube.png';
 import X from '/public/images/X.png';
 import CampusImage from '/public/images/Campus.png';
 
+
 const Homepage = async () => {
 
     const session = await getServerSession();
@@ -34,10 +35,10 @@ const Homepage = async () => {
     return (
         <div className={styles.pageBackground}>
             <h1 className={styles.pageTitle}>
-                Welcome to the University of Birmingham Chatbot
+                Hi {session?.user?.name}, Welcome to the University of Birmingham Chatbot
             </h1>
 
-            <div className={styles.topRightTextbox}>
+            <div className={styles.aboutTextbox}>
                 {/*UoB Academic Inquiry Hub<br/>*/}
                 <div className={styles.homePageMiniTitle}> About</div>
                 • Quick virtual aid for UoB inquiries<br/>
@@ -55,6 +56,11 @@ const Homepage = async () => {
                 objectFit="contain"
                 objectPosition="top"*/
             />
+
+            {/*<video width="750" controls>
+                <source src="/images/video.mp4" type="video/mp4"/>
+                Your browser does not support videos
+            </video>*/}
 
 
             <div className={styles.socialMediaContainer}>

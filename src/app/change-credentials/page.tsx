@@ -61,21 +61,21 @@ const Change = () => {
       <h1 className={styles.pageTitle}>Change Password</h1>
         <div className="bg-[#212121] p-7 rounded shadow-md w-full max-w-md">
           <input
-            className={styles.inputStyle}
+            className={styles.credentialsPage}
             type="password"
             placeholder="Enter current password"
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
           />
           <input
-            className={styles.inputStyle}
+            className={styles.credentialsPage}
             type="password"
             placeholder="Enter new password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
           />
           <input
-            className={styles.inputStyle}
+            className={styles.credentialsPage}
             type="password"
             placeholder="Confirm new password"
             value={confirmNewPassword}

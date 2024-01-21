@@ -44,13 +44,11 @@ const SettingsDropdown = () => {
             console.log(' INSIDE IF PASSWORD CHAN')
             setMenuItems([
               {name: 'Change Password', route: '/change-credentials'},
-              {name: 'DarkMode/LightMode', route: '/history'},
               {name: 'Signout', route: '/api/auth/signout'},
             ]);
           } else {
             console.log(' INSIDE IF PASSWORD CHAN NOT ALLOWED else 1')
             setMenuItems([
-              {name: 'DarkMode/LightMode', route: '/history'},
               {name: 'Signout', route: '/api/auth/signout'},
             ]);
           }
