@@ -94,21 +94,24 @@ const Register = () => {
                         <form onSubmit={handleSubmit}>
                             <input
                                 type="text"
-                                className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                //className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                className={styles.credentialsPage}
                                 placeholder="Name"
                                 required
                             />
 
                             <input
                                 type="text"
-                                className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                //className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                className={styles.credentialsPage}
                                 placeholder="Email"
                                 required
                             />
 
                             <input
                                 type="password"
-                                className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                //className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus: border-blue-400 focus: text-black"
+                                className={styles.credentialsPage}
                                 placeholder="Password"
                                 required
                             />
@@ -124,7 +127,7 @@ const Register = () => {
                             <br/>
                             <br/>
 
-                            <p className="text-sm font-medium text-red-700">
+                            <p className={styles.errorMessage}>
                                 <b>Password must contain...</b>
                                 <ul>
                                     <li>• At least 7 characters</li>
@@ -135,12 +138,12 @@ const Register = () => {
                             </p>
 
 
-                            <p className="text-red-600 text-[16px] mb-4"> {error && error}</p>
+                            <p className={styles.errorMessage}> {error && error}</p>
 
                         </form>
-                        <div className="text-center text-gray-500 mt-4">- OR -</div>
+                        <div className={styles.homeDivider}>- OR -</div>
                         <Link
-                            className="block text-center text-blue-500 hover:underline mt-2"
+                            className={styles.loginLink}
                             href="/login"
                         >
                             Login with an existing account
