@@ -52,7 +52,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: #222;
     color: #fff;
     position: relative;
     margin: auto;
@@ -87,10 +86,11 @@
     outline: none;
 }
 
+
 .pageBackground {
     /*height: 100vh;*/
     height: calc(100vh - 80px);
-    background-color: black;
+    /*background-color: black;*/
     padding-top: 10px;
     /*padding: 1.5rem;*/
     display: flex;

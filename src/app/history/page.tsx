@@ -78,6 +78,7 @@ export default function ConversationHistory() {
             if (response.ok) {
                 console.log('History cleared');
                 setChatHistories([]);
+                  setFilteredHistories([]);
             } else {
                 console.error('Failed to clear history');
             }

@@ -2,9 +2,10 @@ import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import './globals.css'
 import Navbar from "@/app/components/Navbar";
-import { getServerSession } from "next-auth";
+import {getServerSession} from "next-auth";
 import SessionProvider from "@/utils/SessionProvider";
 import styles from '@/app/Pages.module.css'
+import {ThemeProvider} from "@/app/theme-provider";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -14,23 +15,23 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({
-    children,
-                                   }: {
+                                             children,
+                                         }: {
     children: React.ReactNode
 }) {
     const session = await getServerSession();
     return (
         <html lang="en">
-        <body className={inter.className}>
-        <SessionProvider session={session}>
-            <div className="m-ao max--w-5xl text-2xl gap-2 mb-10">
+        <body className={`${inter.className} bg-white dark:bg-black `}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <SessionProvider session={session}>
                 <Navbar/>
                 {children}
-            </div>
-            <footer className="text-center py-4 bg-black-50 fixed bottom-0 right-0 left-0">
-                <p className={styles.miscellaneous}>© {new Date().getFullYear()} Developed by Rohan Renganathan</p>
-            </footer>
-        </SessionProvider>
+                <footer className="text-center py-4 bg-black-50 fixed bottom-0 right-0 left-0">
+                    <p className={styles.miscellaneous}>©️ {new Date().getFullYear()} Developed by Rohan Renganathan</p>
+                </footer>
+            </SessionProvider>
+        </ThemeProvider>
         </body>
         </html>
     )

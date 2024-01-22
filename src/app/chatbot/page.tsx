@@ -136,8 +136,8 @@ import {useRouter} from "next/navigation";
                                                 />
                                                 <div
                                                     className="w-auto max-w-xl break-words bg-gray-200 rounded-b-xl rounded-tr-xl text-black p-6 shadow-[0_10px_40px_0px_rgba(0,0,0,0.15)]">
-                                                    <p className="text-base font-medium text-violet-500 mb-2">
-                                                        AI assistant
+                                                    <p className="text-base font-medium text-violet-500 mb-4">
+                                                        BrumBot
                                                     </p>
                                                     <p className="text-sm font-medium text-black-500 mb-2">
                                                         {message.content}
@@ -193,7 +193,7 @@ import {useRouter} from "next/navigation";
                                     <div
                                         className="w-auto max-w-xl break-words bg-white rounded-b-xl rounded-tr-xl text-black p-6 shadow-[0_10px_40px_0px_rgba(0,0,0,0.15)]">
                                         <p className="text-sm font-medium text-violet-500 mb-4">
-                                            AI Assistant
+                                            BrumBot
                                         </p>
                                         <LoadingDots/>
                                     </div>
