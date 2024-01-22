@@ -40,7 +40,6 @@ const Navbar = () => {
 
             {session && (
                 <div className={styles.userSettings}>
-                    <span>{session.user.name}</span>
                     <SettingsDropdown/>
                 </div>
             )}

@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { signOut, useSession } from "next-auth/react";
 import styles from '@/app/Pages.module.css'
 import Link from "next/link";
+import {black} from "next/dist/lib/picocolors";
 
 interface MenuItem {
   name: string;

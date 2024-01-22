@@ -102,13 +102,14 @@
 .pageTitle {
     font-family: Avenir Next, serif;
     font-size: 37px;
-    color: whitesmoke;
+    color: purple;
     text-align: center;
     margin-bottom: 2rem;
 }
 
 .nameField {
     margin-bottom: 20px;
+    color: antiquewhite;
 }
 
 .textareaMessage {
@@ -187,7 +188,7 @@
 }
 
 .dropdown-header {
-    color: black;
+    color: yellow;
     padding: 16px;
     font-size: 32px;
     border: none;
@@ -200,10 +201,11 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    background: dimgrey;
 }
 
 .dropdown-list-item {
-    color: red;
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -321,8 +323,7 @@
     top: 180px;
     right: 1200px;
     padding: 2px;
-    background: rgba(255, 255, 0, 0.5);
-    color: black;
+    color: purple;
     font-family: Avenir Next, serif;
     font-size: 12px;
     border-radius: 15px;
@@ -335,7 +336,7 @@
 }
 
 .homePageMiniTitle {
-    color: black;
+    color: purple;
     font-family: Avenir Next, serif;
     font-size: 16px;
     text-align: center;
