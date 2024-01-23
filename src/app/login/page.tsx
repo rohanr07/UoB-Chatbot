@@ -86,7 +86,7 @@ const Login = () => {
                             {" "}
                             Sign In
                         </button>
-                        <p className="text-red-600 text-[16px] mb-4"> {error && error}</p>
+                        <p className={styles.errorMessage}> {error && error}</p>
                     </form>
 
                     <a href="/api/auth/signin/github" className="github-signin">

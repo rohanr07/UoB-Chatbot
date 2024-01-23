@@ -20,12 +20,20 @@
     width: 384px;
 }
 
+.passwordRules {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: yellow;
+    line-height: 1.5;
+    padding-top: 2rem;
+}
 
 .errorMessage {
-    font-size: 0.875rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: red;
     line-height: 1.5;
+    padding-top: 2rem;
 }
 
 .homeDivider {
