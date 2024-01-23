@@ -48,19 +48,10 @@ const Homepage = async () => {
 
             </div>
 
-            <Image
-                src={CampusImage}
-                alt="Campus Image"
-                className={styles.campusImage}
-                /*layout="responsive"
-                objectFit="contain"
-                objectPosition="top"*/
-            />
-
-            {/*<video width="750" controls>
-                <source src="/images/video.mp4" type="video/mp4"/>
+            <video width="850" controls>
+                <source src="/images/BrumBot.mp4" type="video/mp4"/>
                 Your browser does not support videos
-            </video>*/}
+            </video>
 
 
             <div className={styles.socialMediaContainer}>
