@@ -22,18 +22,18 @@ const Navbar = () => {
             <ul className={styles.navLinks}>
                 {!session ? (
                     <>
-                        <li><ThemeSwitcher/></li>
                         <li><Link href="/">Home</Link></li>
                         <li><Link href="/login">Login</Link></li>
                         <li><Link href="/register">Register</Link></li>
+                        <li><ThemeSwitcher/></li>
                     </>
                 ) : (
                     <>
-                        <li><ThemeSwitcher/></li>
                         <li><Link href="/home">Home</Link></li>
                         <li><Link href="/chatbot">Chatbot</Link></li>
                         <li><Link href="/history">Chat History</Link></li>
                         <li><Link href="/contact">Help</Link></li>
+                        <li><ThemeSwitcher/></li>
                     </>
                 )}
             </ul>

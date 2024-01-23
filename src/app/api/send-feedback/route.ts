@@ -27,10 +27,10 @@ console.log(" category ", category);
             pass: process.env.SERVER_PASSWORD
       },
     });
-
     const mailOptions = {
         from: `DO NOT REPLY <${process.env.ADMIN_EMAIL}>`,
         to: process.env.ADMIN_EMAIL,
+        cc: userEmail,
         subject: `Category: ${category}`,
         text: `Name: ${name}\n
         Email: ${email}\n
