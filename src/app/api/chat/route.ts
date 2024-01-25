@@ -32,6 +32,18 @@ async function streamToString(stream: any) {
     return Buffer.concat(chunks).toString('utf8');
 }
 
+function formatMongoTimestamp(timestamp: string) {
+    const date = new Date(timestamp);
+    const formattedDate = date.toLocaleDateString("en-US", {
+        year: 'numeric', month: 'long', day: 'numeric'
+    });
+    const formattedTime = date.toLocaleTimeString("en-US", {
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+
+    return `${formattedDate} at ${formattedTime}`;
+}
+
 export async function POST(req: NextApiRequest) {
     const {userEmail, session}: AuthResult = await authenticateUser(req);
     if (!userEmail || !session) {
@@ -63,7 +75,7 @@ async function handleGet(userEmail: string) {
             email: message.email,
             question: decryptMessage(message.question),
             answer: decryptMessage(message.answer),
-            timestamp: message.timestamp
+            timestamp: formatMongoTimestamp(message.timestamp)
         }));
 
         return NextResponse.json({decryptedChatHistory});
