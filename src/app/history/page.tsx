@@ -129,12 +129,10 @@ export default function ConversationHistory() {
                 </button>
             </div>
 
-
             <ul>
                 {filteredHistories.map((chatHistory, index) => (
-
                     <li key={index}>
-                        <p className={styles.historyContainer}>
+                        <p className="text-black dark:text-white">
                             Question: {chatHistory.question} <br/>
                             Answer: {chatHistory.answer} <br/>
                             <span style={{textAlign: 'right', display: 'block'}}>
