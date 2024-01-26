@@ -21,6 +21,7 @@ export default function ConversationHistory() {
 
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredHistories, setFilteredHistories] = useState<Message1[]>([]);
+    const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
 
     useEffect(() => {
         const fetchChatHistory = async () => {
@@ -78,7 +79,7 @@ export default function ConversationHistory() {
             if (response.ok) {
                 console.log('History cleared');
                 setChatHistories([]);
-                  setFilteredHistories([]);
+                setFilteredHistories([]);
             } else {
                 console.error('Failed to clear history');
             }
@@ -100,6 +101,18 @@ export default function ConversationHistory() {
         }
     };
 
+    const handleSortHistory = () => {
+        const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
+        setSortOrder(newSortOrder);
+
+        const sortedHistories = [...filteredHistories].sort((a, b) => {
+            const timestampA = new Date(a.timestamp).getTime();
+            const timestampB = new Date(b.timestamp).getTime();
+
+            return sortOrder === "asc" ? timestampA - timestampB : timestampB - timestampA;
+        });
+        setFilteredHistories(sortedHistories);
+    };
     return (
         <div className={styles.pageContainer}>
             <h1 className={styles.pageTitle}> Chat History </h1>
@@ -124,14 +137,19 @@ export default function ConversationHistory() {
                     className={styles.searchIcon}
                     onClick={handleSearchHistory}
                 />
+                <button className={styles.button} onClick={handleSortHistory}>
+                    Sort {sortOrder === "asc" ? "↑" : "↓"}
+                </button>
                 <button className={styles.button} onClick={handleClearHistory}>
                     Clear History
                 </button>
             </div>
+
             <ul>
                 {filteredHistories.map((chatHistory, index) => (
+
                     <li key={index}>
-                        <p className="text-black dark:text-white">
+                        <p className={styles.historyContainer}>
                             Question: {chatHistory.question} <br/>
                             Answer: {chatHistory.answer} <br/>
                             <span style={{textAlign: 'right', display: 'block'}}>
@@ -150,6 +168,3 @@ export default function ConversationHistory() {
     )
         ;
 };
-
-
-

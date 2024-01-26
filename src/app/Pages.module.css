@@ -98,10 +98,9 @@
 .pageBackground {
     height: calc(100vh - 80px);
     padding-top: 10px;
-    /*padding: 1.5rem;*/
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center; /*flex-start;*/
     align-items: center;
 }
 
@@ -262,7 +261,7 @@
     align-items: center;
 }
 
-.logosContainer {
+.promptContainer {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -287,9 +286,12 @@
 .socialMediaContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 50%;
     gap: 20px;
-    margin: 20px auto;
+    /*margin: 20px auto;*/
+    margin-top: 30px;
+    margin-bottom: 70px;
     padding: 10px;
     background-color: black;
     border: 1px solid #ddd;
@@ -360,54 +362,61 @@
     cursor: pointer;
     font-size: 18px;
     text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .bulletPoints {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 10px;
-  font-family: Avenir Next, serif;
-  font-size: 25px;
-  color: white;
-  text-align: left;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+    font-family: Avenir Next, serif;
+    font-size: 25px;
+    color: white;
+    text-align: left;
 }
 
 .contentContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
+
 .leftContent {
-  width: 60%;
+    width: 60%;
 }
+
 .videoContainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10000;
-  width: 80%;
-  max-width: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    width: 100%;
+    max-width: 600px;
 }
+
 .connectText {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
+
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
+
 .closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  /* other styles as needed */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* other styles as needed */
 }
 
 

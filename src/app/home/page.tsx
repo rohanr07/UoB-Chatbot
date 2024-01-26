@@ -103,7 +103,7 @@ const Homepage = () => {
                 </a>
             </div>
 
-            <div className={styles.logosContainer}>
+            <div className={styles.promptContainer}>
                 <div className={styles.columnStyle}>
                     <div className={styles.boxStyle}>
                         <HomePageButtons
