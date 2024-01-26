@@ -128,7 +128,6 @@ export default function ConversationHistory() {
                     Clear History
                 </button>
             </div>
-
             <ul>
                 {filteredHistories.map((chatHistory, index) => (
                     <li key={index}>

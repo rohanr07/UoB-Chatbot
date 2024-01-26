@@ -1,6 +1,7 @@
-import React from "react";
-import {getServerSession} from "next-auth";
-import {redirect} from "next/navigation";
+"use client";
+import React, {useEffect, useState} from "react";
+//import {getServerSession} from "next-auth";
+import {useRouter} from "next/navigation";
 import HomePageButtons from "@/app/components/homePageButtons";
 import {questions} from "@/app/components/homePrompt"
 import styles from '@/app/Pages.module.css'
@@ -11,15 +12,26 @@ import FacebookLogo from '/public/images/Facebook.png';
 import LinkedInLogo from '/public/images/Linkedin.png';
 import YouTubeLogo from '/public/images/YouTube.png';
 import X from '/public/images/X.png';
-import CampusImage from '/public/images/Campus.png';
+//import CampusImage from '/public/images/Campus.png';
+import {useSession} from "next-auth/react";
 
 
-const Homepage = async () => {
+const Homepage = () => {
 
-    const session = await getServerSession();
-    if (!session) {
-        redirect("/");
-    }
+    //const session =  getServerSession();
+    const router = useRouter();
+    const {data: session}: any = useSession();
+
+    useEffect(() => {
+        if (!session) {
+            // Redirect to login page if not signed in
+            console.log("User is not authenticated. Redirecting to login page.");
+            router.push("/login");
+            return;
+        } else {
+            console.log(" USER IS AUTHENTICATED ");
+        }
+    }, []);
 
     const shuffleArray = (array: string[]) => {
         const shuffledArray = [...array];
@@ -30,32 +42,50 @@ const Homepage = async () => {
         return shuffledArray;
     };
 
-    const shuffledQuestions = shuffleArray(questions.slice());
+    const shuffledQuestions = questions.slice(); //shuffleArray(questions.slice());
+    const [showVideo, setShowVideo] = useState(false);
 
+    const loadVideo = () => {
+        setShowVideo(true);
+    };
+    const closeVideo = () => {
+        setShowVideo(false);
+    };
     return (
         <div className={styles.pageBackground}>
             <h1 className={styles.pageTitle}>
                 Hi {session?.user?.name}, Welcome to the University of Birmingham Chatbot
             </h1>
+            <ul className={styles.bulletPoints}>
+                <li>Quick virtual aid for UoB inquiries</li>
+                <li>Instant responses to student and staff question</li>
+                <li>Direct access to UoB resources, events & contacts</li>
+                <li>Seamless design ensuring 24/7 information access</li>
+            </ul>
+            <div>
+                <button className={styles.demoButton} onClick={loadVideo}>Demo Clip</button>
 
-            <div className={styles.aboutTextbox}>
-                {/*UoB Academic Inquiry Hub<br/>*/}
-                <div className={styles.homePageMiniTitle}> About</div>
-                • Quick virtual aid for UoB inquiries<br/>
-                • Instant responses to student and staff questions<br/>
-                • Direct access to UoB resources, events & contacts<br/>
-                • Seamless design ensuring 24/7 information access<br/>
-
+                {showVideo && (
+                    <>
+                        <div className={styles.overlay}></div>
+                        <div className={styles.videoContainer}>
+                            <button className={styles.closeButton} onClick={closeVideo}>
+                                <span className={styles.closeIcon}>X</span>
+                            </button>
+                            <video width="100%" controls>
+                                <source src="/images/BrumBot.mp4" type="video/mp4"/>
+                                Your browser does not support videos
+                            </video>
+                        </div>
+                    </>
+                )}
             </div>
 
-            <video width="850" controls>
-                <source src="/images/BrumBot.mp4" type="video/mp4"/>
-                Your browser does not support videos
-            </video>
-
-
             <div className={styles.socialMediaContainer}>
-                <a href="https://www.instagram.com/unibirmingham/" target="_blank" rel="noopener noreferrer">
+                <p className={styles.connectText}>Connect with UoB<br/>on Social Media:</p>
+
+                <a href="https://www.instagram.com/unibirmingham/" target="_blank" rel="noopener noreferrer"
+                   title="UoB Instagram">
                     <Image src={InstagramLogo} alt="Instagram" className={styles.socialMediaLogo}/>
                 </a>
                 <a href="https://www.facebook.com/unibirmingham/" target="_blank" rel="noopener noreferrer">
