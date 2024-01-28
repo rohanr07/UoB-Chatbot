@@ -21,6 +21,7 @@ const Homepage = () => {
     //const session =  getServerSession();
     const router = useRouter();
     const {data: session}: any = useSession();
+    const [shuffledQuestions, setShuffledQuestions] = useState<string[]>([]);
 
     useEffect(() => {
         if (!session) {
@@ -31,7 +32,9 @@ const Homepage = () => {
         } else {
             console.log(" USER IS AUTHENTICATED ");
         }
-    }, []);
+
+        setShuffledQuestions(shuffleArray(questions));
+    }, [session]);
 
     const shuffleArray = (array: string[]) => {
         const shuffledArray = [...array];
@@ -42,7 +45,6 @@ const Homepage = () => {
         return shuffledArray;
     };
 
-    const shuffledQuestions = questions.slice(); //shuffleArray(questions.slice());
     const [showVideo, setShowVideo] = useState(false);
 
     const loadVideo = () => {
