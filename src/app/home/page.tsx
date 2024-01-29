@@ -59,8 +59,8 @@ const Homepage = () => {
                 Hi {session?.user?.name}, Welcome to the University of Birmingham Chatbot
             </h1>
             <ul className={styles.bulletPoints}>
-                <li>Quick virtual aid for UoB inquiries</li>
-                <li>Instant responses to student and staff question</li>
+                <li>Provides quick virtual aid for UoB inquiries</li>
+                <li>Tailored towards UoB students</li>
                 <li>Direct access to UoB resources, events & contacts</li>
                 <li>Seamless design ensuring 24/7 information access</li>
             </ul>
