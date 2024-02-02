@@ -29,7 +29,7 @@ const Navbar = () => {
                     </>
                 ) : (
                     <>
-                        <li><Link href="/home">Home</Link></li>
+                        <li><Link href="/">Home</Link></li>
                         <li><Link href="/chatbot">Chatbot</Link></li>
                         <li><Link href="/history">Chat History</Link></li>
                         <li><Link href="/contact">Help</Link></li>

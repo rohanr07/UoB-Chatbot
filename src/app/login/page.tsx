@@ -17,7 +17,7 @@ const Login = () => {
 
     useEffect(() => {
         if (sessionStatus == "authenticated") {
-            router.replace("/home");
+            router.replace("/");
         }
     }, [sessionStatus, router])
     const isValidEmail = (email: string) => {

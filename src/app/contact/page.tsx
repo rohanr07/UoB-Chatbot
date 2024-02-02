@@ -64,7 +64,7 @@ const Contact = () => {
         console.log("Set Contact email is set")
 
         setTimeout(() => {
-                router.push('/home');
+                router.push('/');
             }, 1500);
       } else {
         setContactEmailStatus('Feedback Failed to Send');
