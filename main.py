@@ -34,8 +34,8 @@ os.environ["OPENAI_API_KEY"] = api_key
 
 # initialize pinecone
 pinecone.init(
-    api_key="a9032cde-3f62-4660-8e15-bcbe9607a5c1",
-    environment="gcp-starter"
+    api_key="a9032cde-3f62-4660-8e15-bcbe9607a5c1", #Use .env variable: process.env.PINECONE_API_KEY
+    environment="gcp-starter" #Create new .env variable: process.env.PINECONE_ENVIRONMENT
 )
 index = pinecone.Index('uob')
 

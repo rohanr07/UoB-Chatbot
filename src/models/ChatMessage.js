@@ -14,6 +14,10 @@ const chatMessageSchema = new mongoose.Schema({
        type: String,
        required: true,
   },
+    likeDislike: {
+       type: Boolean,
+       required: false
+  },
   timestamp: {
     type: Date,
     default: Date.now,
