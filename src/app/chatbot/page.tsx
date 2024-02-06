@@ -153,9 +153,13 @@ const downloadDislikedAnswers = async () => {
         </h1>
 
 {session?.user?.email === adminEmail && (
-  <button onClick={downloadDislikedAnswers}>
-    Download Disliked Answers
-  </button>
+    <button
+        className={styles.button}
+        style={{marginLeft: 'auto'}}
+        onClick={downloadDislikedAnswers}
+    >
+      Download Disliked Answers
+    </button>
 )}
 
         <form
