@@ -87,34 +87,17 @@ async function handleGet(userEmail: string) {
 
 async function handlePost(userEmail: string, question: string, history: Message[]) {
 
-    console.log("User Email: ", userEmail)
-    console.log("Question: ", question)
-    console.log("History: ", history)
-
-
     try {
-//
         const res = await chain.call({
             question: question,
             chat_history: history.map(h => h.content).join("\n"),
         });
 
-        console.log("!! After Chain Call !!")
-        console.log("Received from Chain Call: ", res.text)
-
-        //
-
-        // Replace the actual call to chain.call with a hardcoded result for testing
-        /*const hardcodedResult = {
-           text: 'This is a hardcoded response',
-           sourceDocuments: [
-           { metadata: { source: 'Hardcoded source 1' } },
-           { metadata: { source: 'Hardcoded source 2' } },
-           ],
-          };
-
-        // Use the hardcoded result instead of making an API call to save $$
-        const res = await Promise.resolve(hardcodedResult); */
+        if ((question.toUpperCase() === "HELLO") || (question.toUpperCase() === "HI") || (question.trim() === '')) {
+            res.text = "Hi, how can I help you?";
+        } else if (!res || res.text.trim() === '' || res.text.trim().toUpperCase() === "I DON'T KNOW.") {
+            res.text = "My database does not currently contain this information.  Please visit https://www.birmingham.ac.uk/index.aspx"
+        }
 
         // Decrypt the messages in chatHistory
         const encryptedQuestion = encryptMessage(question)
