@@ -1,6 +1,7 @@
 # Chatbot Python Script to Capture Vector Embeddings
 
 import os
+from dotenv import load_dotenv
 
 # required for vector database
 import pinecone
@@ -24,19 +25,30 @@ from langchain_community.document_loaders import SitemapLoader
 from langchain.chains import RetrievalQA
 
 # uses the standard Large Language Model by LangChain from OpenAI
-from langchain.llms import OpenAI
+#from langchain.llms import OpenAI
+from langchain_community.llms import OpenAI
+
 
 # ############################################ code begins here ########################################################
+
+# Load the .env file
+load_dotenv()
 
 # obtaining API key from environment variable
 api_key = os.environ.get('OPENAI_API_KEY')
 os.environ["OPENAI_API_KEY"] = api_key
 
+# Make sure API key is not None
+if api_key is None:
+    raise ValueError("OPENAI_API_KEY is not set in the .env file")
+
 # initialize pinecone
 pinecone.init(
-    api_key="a9032cde-3f62-4660-8e15-bcbe9607a5c1", #Use .env variable: process.env.PINECONE_API_KEY
-    environment="gcp-starter" #Create new .env variable: process.env.PINECONE_ENVIRONMENT
+    api_key=os.environ.get('PINECONE_API_KEY'),
+    environment="gcp-starter"
 )
+
+print(api_key)
 index = pinecone.Index('uob')
 
 pdf_docs = []
