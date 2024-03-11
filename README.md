@@ -113,7 +113,7 @@ Or you can click on the link generated in terminal to open the application (this
 
 ## 📼 Demo
 
-_The front page of the chatbot contains a video outlining the seamless navigation across the different interfaces_
+_The Home page of the chatbot contains a video outlining the seamless navigation across the different interfaces_
 
 
 ## ✍️ Authors
